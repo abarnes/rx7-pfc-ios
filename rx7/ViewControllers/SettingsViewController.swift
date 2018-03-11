@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  rx7
 //
 //  Created by Austin Barnes on 3/4/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

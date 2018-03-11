@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  FirstViewController.swift
 //  rx7
 //
 //  Created by Austin Barnes on 3/4/18.
@@ -8,11 +8,13 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        
     }
 
     override func didReceiveMemoryWarning() {

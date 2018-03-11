@@ -1,0 +1,4 @@
+github "ReactiveKit/Bond" "6.6.1"
+github "ReactiveKit/ReactiveKit" "v3.9.1"
+github "tonyarnold/Differ" "1.0.3"
+github "troystribling/BlueCap" "0.6.0"

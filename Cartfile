@@ -1,0 +1,2 @@
+github "troystribling/BlueCap" ~> 0.6
+github "ReactiveKit/Bond"
