@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import ReactiveKit
 
 class EngineDataViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var lagLabel: UILabel!
+    
+    private var disposeBag = DisposeBag()
     
     fileprivate struct Constants {
         static let engineDataCollectionViewCellIdentifier = "engineDataCell"
@@ -20,11 +25,27 @@ class EngineDataViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        setupObservers()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func setupObservers() {
+        disposeBag.dispose()
+        EngineDataStateManager.singleton.current.observeNext { [weak self] (engineData) in
+            guard let engineData = engineData else { return }
+            
+            let currentTime = Int(Date().timeIntervalSince1970 * 1000)
+            var estimatedLag = (currentTime - engineData.time)
+            if (estimatedLag < 0) {
+                estimatedLag = 0
+            }
+            
+            self?.lagLabel.text = "Est. Lag: \(estimatedLag)ms"
+        }.dispose(in: disposeBag)
     }
     
 }
