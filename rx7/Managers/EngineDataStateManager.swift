@@ -22,9 +22,14 @@ class EngineDataStateManager {
 
 extension EngineDataStateManager: BluetoothCentralManagerDelegate {
     
-    func dataUpdateReceived(data: Data) {
-        let basicEngineData = BasicEngineData(fromData: data)
+    func dataUpdateReceived(data: Data, forCharacteristic characteristic: BluetoothConfig.Characteristics) {
+        guard (characteristic == BluetoothConfig.Characteristics.engineData) else { return }
+        
+        var basicEngineData = BasicEngineData(fromData: data)
         if (basicEngineData != nil) { // update
+            if let location = GpsManager.singleton.findLocationForTime(basicEngineData.time) {
+                basicEngineData.addLocation(location)
+            }
             current.next(basicEngineData)
         }
     }

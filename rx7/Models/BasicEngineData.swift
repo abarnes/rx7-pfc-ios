@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct BasicEngineData {
     
@@ -21,6 +22,7 @@ struct BasicEngineData {
     private(set) var airTemp: Int
     private(set) var batteryVoltage: Double
     private(set) var rpm: Int
+    private(set) var location: CLLocationCoordinate2D?
     
     init(fromData data: Data) {
         guard (data.count > 24) else {
@@ -39,6 +41,10 @@ struct BasicEngineData {
         airTemp = (Int(data[20..<21].to(UInt8.self)) - 40)
         batteryVoltage = (Double(data[21..<23].to(UInt16.self)) / 10)
         rpm = data[23..<25].to(Int.self)
+    }
+    
+    mutating func addLocation(_ location: CLLocationCoordinate2D) {
+        self.location = location
     }
     
 }

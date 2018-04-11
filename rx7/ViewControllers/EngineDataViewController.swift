@@ -14,6 +14,7 @@ class EngineDataViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var lagLabel: UILabel!
+    @IBOutlet weak var coordinatesLabel: UILabel!
     
     private var disposeBag = DisposeBag()
     
@@ -38,14 +39,33 @@ class EngineDataViewController: UIViewController {
         EngineDataStateManager.singleton.current.observeNext { [weak self] (engineData) in
             guard let engineData = engineData else { return }
             
-            let currentTime = Int(Date().timeIntervalSince1970 * 1000)
-            var estimatedLag = (currentTime - engineData.time)
-            if (estimatedLag < 0) {
-                estimatedLag = 0
-            }
-            
-            self?.lagLabel.text = "Est. Lag: \(estimatedLag)ms"
+            self?.updateEstimatedLag(from: engineData)
+            self?.updateCoordinates(from: engineData)
         }.dispose(in: disposeBag)
+        
+        BluetoothCentralManager.singleton.state.observeNext { [weak self] (state) in
+            self?.statusLabel.text = state.rawValue
+        }.dispose(in: disposeBag)
+    }
+    
+    private func updateEstimatedLag(from engineData: BasicEngineData) {
+        let currentTime = Int(Date().timeIntervalSince1970 * 1000)
+        var estimatedLag = (currentTime - engineData.time)
+        if (estimatedLag < 0) {
+            estimatedLag = 0
+        }
+        
+        DispatchQueue.main.async { [weak self] in
+             self?.lagLabel.text = "Est. Lag: \(estimatedLag)ms"
+        }
+    }
+    
+    private func updateCoordinates(from engineData: BasicEngineData) {
+        guard let location = engineData.location else { return }
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.coordinatesLabel.text = "\(location.latitude)º, \(location.longitude)º"
+        }
     }
     
 }

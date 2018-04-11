@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D93C0682205B267D00C9E6B5 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93C0681205B267D00C9E6B5 /* Settings.storyboard */; };
+		D93C0684205B27EA00C9E6B5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93C0683205B27EA00C9E6B5 /* SettingsTableViewController.swift */; };
+		D98B1AAC207E9C9E005A7DB3 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98B1AAB207E9C9E005A7DB3 /* BluetoothManager.swift */; };
+		D9BCA029207C4244003559E9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BCA028207C4244003559E9 /* Alamofire.framework */; };
+		D9BCA02A207C4244003559E9 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9BCA028207C4244003559E9 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D9BCA02D207C430C003559E9 /* LiveDataUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCA02C207C430C003559E9 /* LiveDataUploadService.swift */; };
 		D9CBCF06204CDEA5002D4206 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBCF05204CDEA5002D4206 /* AppDelegate.swift */; };
 		D9CBCF08204CDEA5002D4206 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBCF07204CDEA5002D4206 /* HomeViewController.swift */; };
-		D9CBCF0A204CDEA5002D4206 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBCF09204CDEA5002D4206 /* SettingsViewController.swift */; };
 		D9CBCF0F204CDEA5002D4206 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9CBCF0E204CDEA5002D4206 /* Assets.xcassets */; };
 		D9CBCF1D204CE191002D4206 /* GpsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBCF1C204CE191002D4206 /* GpsManager.swift */; };
 		D9CBCF20204CE6AE002D4206 /* BluetoothCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBCF1F204CE6AE002D4206 /* BluetoothCentralManager.swift */; };
@@ -32,7 +37,6 @@
 		D9CBCF572055F060002D4206 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBCF562055F060002D4206 /* Data.swift */; };
 		D9CBCF5A2055F0C6002D4206 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CBCF582055F0C5002D4206 /* LaunchScreen.storyboard */; };
 		D9CBCF5B2055F0C6002D4206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CBCF592055F0C6002D4206 /* Main.storyboard */; };
-		D9CBCF5E2055F0D9002D4206 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CBCF5C2055F0D9002D4206 /* Settings.storyboard */; };
 		D9CBCF5F2055F0D9002D4206 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CBCF5D2055F0D9002D4206 /* Home.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +50,7 @@
 				D9CBCF492055DF79002D4206 /* ReactiveKit.framework in Embed Frameworks */,
 				D9CBCF29204E3D02002D4206 /* BlueCapKit.framework in Embed Frameworks */,
 				D9CBCF472055DF79002D4206 /* Differ.framework in Embed Frameworks */,
+				D9BCA02A207C4244003559E9 /* Alamofire.framework in Embed Frameworks */,
 				D9CBCF452055DF79002D4206 /* Bond.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -54,10 +59,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D93C0681205B267D00C9E6B5 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		D93C0683205B27EA00C9E6B5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = rx7/ViewControllers/SettingsTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		D98B1AAB207E9C9E005A7DB3 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		D9BCA028207C4244003559E9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		D9BCA02C207C430C003559E9 /* LiveDataUploadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LiveDataUploadService.swift; path = rx7/Services/LiveDataUploadService.swift; sourceTree = SOURCE_ROOT; };
 		D9CBCF02204CDEA5002D4206 /* rx7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rx7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CBCF05204CDEA5002D4206 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9CBCF07204CDEA5002D4206 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		D9CBCF09204CDEA5002D4206 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D9CBCF0E204CDEA5002D4206 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9CBCF13204CDEA5002D4206 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9CBCF1C204CE191002D4206 /* GpsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpsManager.swift; sourceTree = "<group>"; };
@@ -77,7 +86,6 @@
 		D9CBCF562055F060002D4206 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Data.swift; path = rx7/Extensions/Data.swift; sourceTree = SOURCE_ROOT; };
 		D9CBCF582055F0C5002D4206 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9CBCF592055F0C6002D4206 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		D9CBCF5C2055F0D9002D4206 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		D9CBCF5D2055F0D9002D4206 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9CBCF422055DF46002D4206 /* Bond.framework in Frameworks */,
+				D9BCA029207C4244003559E9 /* Alamofire.framework in Frameworks */,
 				D9CBCF432055DF46002D4206 /* Differ.framework in Frameworks */,
 				D9CBCF482055DF79002D4206 /* ReactiveKit.framework in Frameworks */,
 				D9CBCF27204E3CF6002D4206 /* CoreBluetooth.framework in Frameworks */,
@@ -97,9 +106,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D9BCA02B207C42C2003559E9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D9BCA02C207C430C003559E9 /* LiveDataUploadService.swift */,
+			);
+			name = Services;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		D9CBCEF9204CDEA5002D4206 = {
 			isa = PBXGroup;
 			children = (
+				D9BCA028207C4244003559E9 /* Alamofire.framework */,
 				D9CBCF04204CDEA5002D4206 /* rx7 */,
 				D9CBCF03204CDEA5002D4206 /* Products */,
 				D9CBCF21204CE6DE002D4206 /* Frameworks */,
@@ -118,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				D9CBCF05204CDEA5002D4206 /* AppDelegate.swift */,
+				D9BCA02B207C42C2003559E9 /* Services */,
 				D9CBCF302055C92E002D4206 /* Extensions */,
 				D9CBCF1E204CE199002D4206 /* Managers */,
 				D9CBCF312055C95C002D4206 /* Models */,
@@ -136,7 +156,7 @@
 			children = (
 				D9CBCF07204CDEA5002D4206 /* HomeViewController.swift */,
 				D9CBCF342055DC2F002D4206 /* EngineDataViewController.swift */,
-				D9CBCF09204CDEA5002D4206 /* SettingsViewController.swift */,
+				D93C0683205B27EA00C9E6B5 /* SettingsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -145,9 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				D9CBCF5D2055F0D9002D4206 /* Home.storyboard */,
-				D9CBCF5C2055F0D9002D4206 /* Settings.storyboard */,
 				D9CBCF582055F0C5002D4206 /* LaunchScreen.storyboard */,
 				D9CBCF592055F0C6002D4206 /* Main.storyboard */,
+				D93C0681205B267D00C9E6B5 /* Settings.storyboard */,
 				D9CBCF392055DD81002D4206 /* EngineData.storyboard */,
 			);
 			path = Storyboards;
@@ -159,6 +179,7 @@
 				D9CBCF1C204CE191002D4206 /* GpsManager.swift */,
 				D9CBCF4A2055DFC5002D4206 /* EngineDataStateManager.swift */,
 				D9CBCF1F204CE6AE002D4206 /* BluetoothCentralManager.swift */,
+				D98B1AAB207E9C9E005A7DB3 /* BluetoothManager.swift */,
 				D9CBCF2B205224EE002D4206 /* BluetoothConfig.swift */,
 			);
 			path = Managers;
@@ -280,9 +301,9 @@
 				D9CBCF3A2055DD81002D4206 /* EngineData.storyboard in Resources */,
 				D9CBCF0F204CDEA5002D4206 /* Assets.xcassets in Resources */,
 				D9CBCF5B2055F0C6002D4206 /* Main.storyboard in Resources */,
+				D93C0682205B267D00C9E6B5 /* Settings.storyboard in Resources */,
 				D9CBCF5F2055F0D9002D4206 /* Home.storyboard in Resources */,
 				D9CBCF5A2055F0C6002D4206 /* LaunchScreen.storyboard in Resources */,
-				D9CBCF5E2055F0D9002D4206 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9CBCF352055DC2F002D4206 /* EngineDataViewController.swift in Sources */,
+				D93C0684205B27EA00C9E6B5 /* SettingsTableViewController.swift in Sources */,
 				D9CBCF532055F04B002D4206 /* EngineDataCollectionViewCellViewModel.swift in Sources */,
 				D9CBCF2C205224EE002D4206 /* BluetoothConfig.swift in Sources */,
 				D9CBCF4B2055DFC5002D4206 /* EngineDataStateManager.swift in Sources */,
@@ -321,9 +343,10 @@
 				D9CBCF20204CE6AE002D4206 /* BluetoothCentralManager.swift in Sources */,
 				D9CBCF572055F060002D4206 /* Data.swift in Sources */,
 				D9CBCF552055F054002D4206 /* EngineDataCollectionViewCell.swift in Sources */,
-				D9CBCF0A204CDEA5002D4206 /* SettingsViewController.swift in Sources */,
+				D98B1AAC207E9C9E005A7DB3 /* BluetoothManager.swift in Sources */,
 				D9CBCF06204CDEA5002D4206 /* AppDelegate.swift in Sources */,
 				D9CBCF08204CDEA5002D4206 /* HomeViewController.swift in Sources */,
+				D9BCA02D207C430C003559E9 /* LiveDataUploadService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
