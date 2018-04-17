@@ -73,7 +73,7 @@ class EngineDataViewController: UIViewController {
 extension EngineDataViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return GaugeType.count
+        return EngineDataItem.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -81,7 +81,7 @@ extension EngineDataViewController: UICollectionViewDataSource {
             fatalError("Could not cast cell to EngineDataCollectionViewCell")
         }
         
-        if let gauge = GaugeType(rawValue: indexPath.row) {
+        if let gauge = EngineDataItem(rawValue: indexPath.row) {
             cell.viewModel = EngineDataCollectionViewCellViewModel(gauge: gauge)
         }
         

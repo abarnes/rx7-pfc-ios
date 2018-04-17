@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import ReactiveKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var connectionStatus: UILabel!
+    
+    private var disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        
+        setupObservers()
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +27,12 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    private func setupObservers() {
+        disposeBag.dispose()
+        BluetoothCentralManager.singleton.state.observeNext { [weak self] (state) in
+            self?.connectionStatus.text = state.rawValue
+        }.dispose(in: disposeBag)
+    }
 
 }
 

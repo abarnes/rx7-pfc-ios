@@ -8,11 +8,23 @@
 
 import UIKit
 
+private enum SettingsSections: String {
+    case gauges = "Gauges"
+    case thresholds = "Thresholds"
+    case requestIntervals = "Intervals"
+}
+
 class SettingsTableViewController: UITableViewController {
 
     struct Constants {
         static let settingsTableCellIdentifier = "SettingsTableViewCell"
+        static let thresholdConfigStoryboardFileName = "ThresholdConfig"
+        static let thresholdConfigStoryboardId = "ThresholdConfigViewController"
+        static let cellNibName = "SettingsTableViewCell"
+        
     }
+    
+    fileprivate let settingsLinkArray: [SettingsSections] = [.gauges, .thresholds, .requestIntervals]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +34,8 @@ class SettingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+
+        tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.settingsTableCellIdentifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,10 +48,6 @@ class SettingsTableViewController: UITableViewController {
 /// Datasource
 
 extension SettingsTableViewController {
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.settingsTableCellIdentifier, for: indexPath)
-        return cell
-    }
     
     // MARK: - Table view data source
 
@@ -46,24 +56,43 @@ extension SettingsTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return settingsLinkArray.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.settingsTableCellIdentifier, for: indexPath) as? SettingsTableViewCell else {
+            fatalError("Could not dequeue cell")
+        }
+        guard indexPath.row < settingsLinkArray.count else { return cell }
+        let selectedSettingsSection = settingsLinkArray[indexPath.row]
+        cell.setTitle(selectedSettingsSection.rawValue)
 
         return cell
     }
-    */
 
 }
 
 /// Delegate
 
 extension SettingsTableViewController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row < settingsLinkArray.count else { return }
+        let selectedSettingsSection = settingsLinkArray[indexPath.row]
+        
+        switch selectedSettingsSection {
+        case .gauges:
+            print("gauges")
+        case .thresholds:
+            print("thresholds")
+            let storyboard = UIStoryboard(name: Constants.thresholdConfigStoryboardFileName, bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: Constants.thresholdConfigStoryboardId)
+            self.navigationController?.pushViewController(controller, animated: true)
+        case .requestIntervals:
+            print("requestIntervals")
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
