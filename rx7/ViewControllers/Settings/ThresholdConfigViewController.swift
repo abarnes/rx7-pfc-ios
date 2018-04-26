@@ -22,6 +22,12 @@ class ThresholdConfigViewController: UITableViewController {
 
         tableView.register(UINib(nibName: "ThresholdConfigTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.thresholdConfigTableCellIdentifier)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        BluetoothManager.singleton.read(characteristic: BluetoothConfig.Characteristics.thresholdConfig) { (data) in
+            print("it's data \(data))")
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

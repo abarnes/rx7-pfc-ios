@@ -29,7 +29,9 @@ class BluetoothManager: NSObject {
     
     fileprivate var centralManager: CBCentralManager!
     fileprivate var connectedPeripheral: CBPeripheral?
+    fileprivate var characteristicMap = [CBUUID: CBCharacteristic]()
     fileprivate var listeners = [BluetoothConfig.Characteristics: [BluetoothDataReceivedClosure]]()
+    fileprivate var readRequestCallbacks = [BluetoothConfig.Characteristics: [BluetoothDataReceivedClosure]]()
     private(set) var state = Observable<BluetoothState>(.unknown)
     
     override init() {
@@ -45,7 +47,13 @@ class BluetoothManager: NSObject {
     }
     
     func read(characteristic: BluetoothConfig.Characteristics, _ closure: @escaping BluetoothDataReceivedClosure) {
-
+        guard let readingCharacteristic = characteristicMap[characteristic.asCBUUID] else { return }
+        if (readRequestCallbacks[characteristic] == nil) {
+            readRequestCallbacks[characteristic] = [closure]
+        } else {
+            readRequestCallbacks[characteristic]?.append(closure)
+        }
+        connectedPeripheral?.readValue(for: readingCharacteristic)
     }
     
     func subscribe(to characteristic: BluetoothConfig.Characteristics, _ closure: @escaping BluetoothDataReceivedClosure) {
@@ -91,7 +99,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        print("BluteoothManager: Connected!")
+        print("BlueteoothManager: Connected!")
         connectedPeripheral?.discoverServices([BluetoothConfig.Services.service])
     }
 }
@@ -110,15 +118,13 @@ extension BluetoothManager: CBPeripheralDelegate {
         guard let characteristics = service.characteristics else { return }
         
         for characteristic in characteristics {
-            print("BluteoothManager: didDiscoverCharacteristicsFor \(characteristic)")
+            print("BlueteoothManager: didDiscoverCharacteristicsFor \(characteristic)")
 
-            if characteristic.properties.contains(.read) {
-                print("BluteoothManager: \(characteristic.uuid): properties contains .read")
-                peripheral.readValue(for: characteristic)
-            }
+            characteristicMap[characteristic.uuid] = characteristic
+            
             if characteristic.properties.contains(.notify) {
-                print("BluteoothManager: \(characteristic.uuid): properties contains .notify")
-                peripheral.setNotifyValue(true, for: characteristic)
+                print("BlueteoothManager: \(characteristic.uuid): properties contains .notify")
+                // peripheral.setNotifyValue(true, for: characteristic)
             }
         }
     }
@@ -131,6 +137,8 @@ extension BluetoothManager: CBPeripheralDelegate {
             handleUpdate(for: BluetoothConfig.Characteristics.engineData, withValue: characteristic.value)
         case BluetoothConfig.Characteristics.gpsReceiver.asCBUUID:
             handleUpdate(for: BluetoothConfig.Characteristics.gpsReceiver, withValue: characteristic.value)
+        case BluetoothConfig.Characteristics.thresholdConfig.asCBUUID:
+            handleUpdate(for: BluetoothConfig.Characteristics.thresholdConfig, withValue: characteristic.value)
         default:
             print("Unhandled Characteristic UUID: \(characteristic.uuid)")
         }
@@ -138,9 +146,17 @@ extension BluetoothManager: CBPeripheralDelegate {
     
     private func handleUpdate(for characteristic: BluetoothConfig.Characteristics, withValue value: Data?) {
         print("BluetoothManager: handling update for characteristic \(characteristic)")
-        guard let callbacks = listeners[characteristic] else { return }
-        for callback in callbacks {
-            callback(value)
+        if let notifyCallbacks = listeners[characteristic] {
+            for callback in notifyCallbacks {
+                callback(value)
+            }
+        }
+        
+        if let readCallbacks = readRequestCallbacks[characteristic] {
+            for callback in readCallbacks {
+                callback(value)
+            }
+            readRequestCallbacks[characteristic] = nil
         }
     }
     
