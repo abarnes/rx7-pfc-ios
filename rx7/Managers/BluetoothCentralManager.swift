@@ -22,6 +22,7 @@ enum BluetoothError: Error {
     case unlikley
 }
 
+/*
 enum BluetoothState: String {
     case unknown = "Unknown"
     case poweredOff = "Powered Off"
@@ -31,7 +32,7 @@ enum BluetoothState: String {
     case connected = "Connected"
     case active = "Active"
     case stalled = "Stalled"
-}
+}*/
 
 protocol BluetoothCentralManagerDelegate: class {
     func dataUpdateReceived(data: Data, forCharacteristic characteristic: BluetoothConfig.Characteristics)
@@ -209,9 +210,9 @@ class BluetoothCentralManager {
                 }
                 
                 self.connectedCharacteristics[characteristic] = foundCharacteristic
-                if (characteristic.shouldReceiveNotifications) {
+                //if (characteristic.shouldReceiveNotifications) {
                     return foundCharacteristic.startNotifying()
-                }
+                //}
                 
                 return Future()
             }.flatMap { _ -> FutureStream<Data?> in

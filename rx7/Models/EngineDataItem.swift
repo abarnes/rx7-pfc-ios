@@ -46,4 +46,29 @@ enum EngineDataItem: Int {
     }
     
     static var count: Int { return EngineDataItem.batteryVoltage.hashValue + 1 }
+    
+    var editThresholdParameters: EditThresholdParameters {
+        switch self {
+        case .rpm:
+            return EditThresholdParameters(min: 0, max: 30000, step: 10)
+        case .boost:
+            return EditThresholdParameters(min: -5000, max: 5000, step: 10)
+        case .waterTemp:
+            return EditThresholdParameters(min: -50, max: 200, step: 1)
+        case .knock:
+            return EditThresholdParameters(min: 0, max: 100, step: 1)
+        case .injectorDuty:
+            return EditThresholdParameters(min: 0, max: 100, step: 1)
+        case .leadingIgnition:
+            return EditThresholdParameters(min: -100, max: 100, step: 1)
+        case .trailingIgnition:
+            return EditThresholdParameters(min: -100, max: 100, step: 1)
+        case .speed:
+            return EditThresholdParameters(min: 0, max: 300, step: 1)
+        case .airTemp:
+            return EditThresholdParameters(min: -50, max: 200, step: 1)
+        case .batteryVoltage:
+            return EditThresholdParameters(min: 0.0, max: 20.0, step: 0.1)
+        }
+    }
 }

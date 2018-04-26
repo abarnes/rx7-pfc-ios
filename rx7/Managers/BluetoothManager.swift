@@ -8,8 +8,20 @@
 
 import Foundation
 import CoreBluetooth
+import Bond
 
 typealias BluetoothDataReceivedClosure = (Data?) -> Void
+
+enum BluetoothState: String {
+    case unknown = "Unknown"
+    case poweredOff = "Powered Off"
+    case poweredOn = "Powered On"
+    case searching = "Searching"
+    case connecting = "Connecting"
+    case connected = "Connected"
+    case active = "Active"
+    case stalled = "Stalled"
+}
 
 class BluetoothManager: NSObject {
     
@@ -18,6 +30,7 @@ class BluetoothManager: NSObject {
     fileprivate var centralManager: CBCentralManager!
     fileprivate var connectedPeripheral: CBPeripheral?
     fileprivate var listeners = [BluetoothConfig.Characteristics: [BluetoothDataReceivedClosure]]()
+    private(set) var state = Observable<BluetoothState>(.unknown)
     
     override init() {
         super.init()
@@ -29,6 +42,10 @@ class BluetoothManager: NSObject {
         guard let peripheral = connectedPeripheral else { return }
         let writeType = withResponse ? CBCharacteristicWriteType.withResponse : CBCharacteristicWriteType.withoutResponse
         peripheral.writeValue(data, for: characteristic, type: writeType)
+    }
+    
+    func read(characteristic: BluetoothConfig.Characteristics, _ closure: @escaping BluetoothDataReceivedClosure) {
+
     }
     
     func subscribe(to characteristic: BluetoothConfig.Characteristics, _ closure: @escaping BluetoothDataReceivedClosure) {
@@ -94,7 +111,7 @@ extension BluetoothManager: CBPeripheralDelegate {
         
         for characteristic in characteristics {
             print("BluteoothManager: didDiscoverCharacteristicsFor \(characteristic)")
-            
+
             if characteristic.properties.contains(.read) {
                 print("BluteoothManager: \(characteristic.uuid): properties contains .read")
                 peripheral.readValue(for: characteristic)
@@ -120,6 +137,7 @@ extension BluetoothManager: CBPeripheralDelegate {
     }
     
     private func handleUpdate(for characteristic: BluetoothConfig.Characteristics, withValue value: Data?) {
+        print("BluetoothManager: handling update for characteristic \(characteristic)")
         guard let callbacks = listeners[characteristic] else { return }
         for callback in callbacks {
             callback(value)

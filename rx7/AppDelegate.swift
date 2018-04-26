@@ -15,9 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        let bluetoothManager = BluetoothCentralManager.singleton
-        
+        let _ = BluetoothManager.singleton // initialize bluetooth
         
         return true
     }

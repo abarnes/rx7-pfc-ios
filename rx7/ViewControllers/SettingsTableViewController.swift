@@ -84,7 +84,6 @@ extension SettingsTableViewController {
         case .gauges:
             print("gauges")
         case .thresholds:
-            print("thresholds")
             let storyboard = UIStoryboard(name: Constants.thresholdConfigStoryboardFileName, bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: Constants.thresholdConfigStoryboardId)
             self.navigationController?.pushViewController(controller, animated: true)

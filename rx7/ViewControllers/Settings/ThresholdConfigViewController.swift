@@ -85,6 +85,7 @@ extension ThresholdConfigViewController {
         if let dataItem = EngineDataItem(rawValue: indexPath.row) {
             let storyboard = UIStoryboard(name: Constants.editThresholdStoryboardFileName, bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: Constants.editThresholdStoryboardId)
+            
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }

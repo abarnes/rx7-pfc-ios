@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditThresholdView" customModule="rx7" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="itt-Cf-jYh" id="Keh-YP-O7k"/>
+                <outlet property="inputField" destination="GK7-n7-iRo" id="n5M-qH-wyU"/>
+                <outlet property="segmentedControl" destination="i8H-sR-fwD" id="DjK-Ga-9eP"/>
+                <outlet property="stepper" destination="2OL-bz-zcN" id="RYf-mj-cdw"/>
+                <outlet property="toggle" destination="HTT-cb-aD4" id="Q7B-ge-3Ay"/>
+                <outlet property="typeLabel" destination="h9Y-vu-fC5" id="ir8-Fk-joM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="itt-Cf-jYh">
+            <rect key="frame" x="0.0" y="0.0" width="189" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5rZ-tG-mcE" userLabel="Container Stack View">
+                    <rect key="frame" x="0.0" y="0.0" width="189" height="120"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F16-Rg-XeP" userLabel="Enable Stack View">
+                            <rect key="frame" x="0.0" y="0.0" width="189" height="31"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9Y-vu-fC5">
+                                    <rect key="frame" x="0.0" y="0.0" width="140" height="31"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HTT-cb-aD4">
+                                    <rect key="frame" x="140" y="0.0" width="51" height="31"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="49" id="FuK-UP-0Tn"/>
+                                    </constraints>
+                                </switch>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="HTT-cb-aD4" firstAttribute="top" secondItem="F16-Rg-XeP" secondAttribute="top" id="JUU-Fv-1tg"/>
+                                <constraint firstAttribute="trailing" secondItem="HTT-cb-aD4" secondAttribute="trailing" id="SK1-Dr-IXe"/>
+                            </constraints>
+                        </stackView>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="i8H-sR-fwD">
+                            <rect key="frame" x="0.0" y="47" width="189" height="29"/>
+                            <segments>
+                                <segment title="Greater Than"/>
+                                <segment title="Less Than"/>
+                            </segments>
+                        </segmentedControl>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ndq-8z-fGZ" userLabel="Value Stack View">
+                            <rect key="frame" x="0.0" y="91" width="189" height="29"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GK7-n7-iRo">
+                                    <rect key="frame" x="0.0" y="0.0" width="79" height="29"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
+                                </textField>
+                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="2OL-bz-zcN">
+                                    <rect key="frame" x="95" y="0.0" width="94" height="29"/>
+                                </stepper>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="0BM-1x-lzx"/>
+                        <constraint firstItem="F16-Rg-XeP" firstAttribute="top" secondItem="5rZ-tG-mcE" secondAttribute="top" id="5CJ-X9-s0U"/>
+                        <constraint firstItem="F16-Rg-XeP" firstAttribute="leading" secondItem="5rZ-tG-mcE" secondAttribute="leading" id="D8q-NF-hpV"/>
+                        <constraint firstAttribute="trailing" secondItem="F16-Rg-XeP" secondAttribute="trailing" id="cJh-L6-JVX"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="6mr-Jh-Hro"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="5rZ-tG-mcE" secondAttribute="bottom" id="FkY-KY-Kdv"/>
+                <constraint firstAttribute="trailing" secondItem="5rZ-tG-mcE" secondAttribute="trailing" id="KB5-Ds-rP1"/>
+                <constraint firstItem="5rZ-tG-mcE" firstAttribute="leading" secondItem="itt-Cf-jYh" secondAttribute="leading" id="ivz-xD-mZS"/>
+                <constraint firstItem="5rZ-tG-mcE" firstAttribute="top" secondItem="aVD-dx-Yx0" secondAttribute="top" id="l7f-aW-MNC"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="aVD-dx-Yx0"/>
+            <point key="canvasLocation" x="104" y="-80"/>
+        </view>
+    </objects>
+</document>

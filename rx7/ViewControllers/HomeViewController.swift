@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
 
     private func setupObservers() {
         disposeBag.dispose()
-        BluetoothCentralManager.singleton.state.observeNext { [weak self] (state) in
+        BluetoothManager.singleton.state.observeNext { [weak self] (state) in
             self?.connectionStatus.text = state.rawValue
         }.dispose(in: disposeBag)
     }

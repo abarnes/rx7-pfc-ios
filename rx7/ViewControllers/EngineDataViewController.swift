@@ -43,7 +43,7 @@ class EngineDataViewController: UIViewController {
             self?.updateCoordinates(from: engineData)
         }.dispose(in: disposeBag)
         
-        BluetoothCentralManager.singleton.state.observeNext { [weak self] (state) in
+        BluetoothManager.singleton.state.observeNext { [weak self] (state) in
             self?.statusLabel.text = state.rawValue
         }.dispose(in: disposeBag)
     }

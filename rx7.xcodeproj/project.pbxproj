@@ -17,6 +17,9 @@
 		D93A2F75208593570059A94E /* ThresholdConfigTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A2F74208593570059A94E /* ThresholdConfigTableViewCellViewModel.swift */; };
 		D93A2F7720859CAF0059A94E /* EditThresholdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A2F7620859CAF0059A94E /* EditThresholdViewController.swift */; };
 		D93A2F7920859CC70059A94E /* EditThreshold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93A2F7820859CC70059A94E /* EditThreshold.storyboard */; };
+		D93A2F7B208BBAEB0059A94E /* EditThresholdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93A2F7A208BBAEB0059A94E /* EditThresholdView.xib */; };
+		D93A2F7D208BBB920059A94E /* EditThresholdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A2F7C208BBB920059A94E /* EditThresholdView.swift */; };
+		D93A2F7F208BC5980059A94E /* EditThresholdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A2F7E208BC5980059A94E /* EditThresholdViewModel.swift */; };
 		D93C0682205B267D00C9E6B5 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93C0681205B267D00C9E6B5 /* Settings.storyboard */; };
 		D93C0684205B27EA00C9E6B5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93C0683205B27EA00C9E6B5 /* SettingsTableViewController.swift */; };
 		D98B1AAC207E9C9E005A7DB3 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98B1AAB207E9C9E005A7DB3 /* BluetoothManager.swift */; };
@@ -79,6 +82,9 @@
 		D93A2F74208593570059A94E /* ThresholdConfigTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThresholdConfigTableViewCellViewModel.swift; path = rx7/ViewModels/ThresholdConfigTableViewCellViewModel.swift; sourceTree = SOURCE_ROOT; };
 		D93A2F7620859CAF0059A94E /* EditThresholdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditThresholdViewController.swift; sourceTree = "<group>"; };
 		D93A2F7820859CC70059A94E /* EditThreshold.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditThreshold.storyboard; sourceTree = "<group>"; };
+		D93A2F7A208BBAEB0059A94E /* EditThresholdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EditThresholdView.xib; path = rx7/Views/Settings/EditThresholdView.xib; sourceTree = SOURCE_ROOT; };
+		D93A2F7C208BBB920059A94E /* EditThresholdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditThresholdView.swift; path = rx7/Views/Settings/EditThresholdView.swift; sourceTree = SOURCE_ROOT; };
+		D93A2F7E208BC5980059A94E /* EditThresholdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditThresholdViewModel.swift; path = rx7/ViewModels/EditThresholdViewModel.swift; sourceTree = SOURCE_ROOT; };
 		D93C0681205B267D00C9E6B5 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		D93C0683205B27EA00C9E6B5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = rx7/ViewControllers/SettingsTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		D98B1AAB207E9C9E005A7DB3 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
@@ -147,6 +153,8 @@
 		D93A2F712085903A0059A94E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				D93A2F7A208BBAEB0059A94E /* EditThresholdView.xib */,
+				D93A2F7C208BBB920059A94E /* EditThresholdView.swift */,
 				D93A2F6D208590330059A94E /* ThresholdConfigTableViewCell.swift */,
 				D93A2F6E208590330059A94E /* ThresholdConfigTableViewCell.xib */,
 			);
@@ -279,6 +287,7 @@
 		D9CBCF512055E5B9002D4206 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				D93A2F7E208BC5980059A94E /* EditThresholdViewModel.swift */,
 				D9CBCF522055F04A002D4206 /* EngineDataCollectionViewCellViewModel.swift */,
 				D93A2F74208593570059A94E /* ThresholdConfigTableViewCellViewModel.swift */,
 			);
@@ -359,6 +368,7 @@
 				D93A2F7920859CC70059A94E /* EditThreshold.storyboard in Resources */,
 				D93A2F6B207EE7840059A94E /* ThresholdConfig.storyboard in Resources */,
 				D93C0682205B267D00C9E6B5 /* Settings.storyboard in Resources */,
+				D93A2F7B208BBAEB0059A94E /* EditThresholdView.xib in Resources */,
 				D9CBCF5F2055F0D9002D4206 /* Home.storyboard in Resources */,
 				D93A2F70208590330059A94E /* ThresholdConfigTableViewCell.xib in Resources */,
 				D9CBCF5A2055F0C6002D4206 /* LaunchScreen.storyboard in Resources */,
@@ -395,6 +405,7 @@
 				D9CBCF352055DC2F002D4206 /* EngineDataViewController.swift in Sources */,
 				D93C0684205B27EA00C9E6B5 /* SettingsTableViewController.swift in Sources */,
 				D93A2F75208593570059A94E /* ThresholdConfigTableViewCellViewModel.swift in Sources */,
+				D93A2F7F208BC5980059A94E /* EditThresholdViewModel.swift in Sources */,
 				D9CBCF532055F04B002D4206 /* EngineDataCollectionViewCellViewModel.swift in Sources */,
 				D9CBCF2C205224EE002D4206 /* BluetoothConfig.swift in Sources */,
 				D9CBCF4B2055DFC5002D4206 /* EngineDataStateManager.swift in Sources */,
@@ -403,6 +414,7 @@
 				D9CBCF20204CE6AE002D4206 /* BluetoothCentralManager.swift in Sources */,
 				D93A2F62207EBD7F0059A94E /* SettingsTableViewCell.swift in Sources */,
 				D93A2F73208590BE0059A94E /* EngineDataItem.swift in Sources */,
+				D93A2F7D208BBB920059A94E /* EditThresholdView.swift in Sources */,
 				D9CBCF572055F060002D4206 /* Data.swift in Sources */,
 				D93A2F6F208590330059A94E /* ThresholdConfigTableViewCell.swift in Sources */,
 				D93A2F7720859CAF0059A94E /* EditThresholdViewController.swift in Sources */,

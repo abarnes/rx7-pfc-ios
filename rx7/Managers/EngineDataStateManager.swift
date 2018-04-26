@@ -15,22 +15,20 @@ class EngineDataStateManager {
     fileprivate(set) var current = Observable<BasicEngineData?>(nil)
     
     init() {
-        BluetoothCentralManager.singleton.delegate = self
+        subscribeToEngineData()
     }
     
-}
-
-extension EngineDataStateManager: BluetoothCentralManagerDelegate {
-    
-    func dataUpdateReceived(data: Data, forCharacteristic characteristic: BluetoothConfig.Characteristics) {
-        guard (characteristic == BluetoothConfig.Characteristics.engineData) else { return }
-        
-        var basicEngineData = BasicEngineData(fromData: data)
-        if (basicEngineData != nil) { // update
-            if let location = GpsManager.singleton.findLocationForTime(basicEngineData.time) {
-                basicEngineData.addLocation(location)
+    private func subscribeToEngineData() {
+        BluetoothManager.singleton.subscribe(to: BluetoothConfig.Characteristics.engineData) { [weak self] (data) in
+            guard let data = data else { return }
+            
+            var basicEngineData = BasicEngineData(fromData: data)
+            if (basicEngineData != nil) { // update
+                if let location = GpsManager.singleton.findLocationForTime(basicEngineData.time) {
+                    basicEngineData.addLocation(location)
+                }
+                self?.current.next(basicEngineData)
             }
-            current.next(basicEngineData)
         }
     }
     

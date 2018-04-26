@@ -17,13 +17,45 @@
                     <view key="view" contentMode="scaleToFill" id="v55-Up-F6V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RPM Threshold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxf-5W-8fL">
+                                <rect key="frame" x="16" y="36" width="172" height="31.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHk-Em-AIq" userLabel="Edit Warning Threshold View" customClass="EditThresholdView" customModule="rx7" customModuleProvider="target">
+                                <rect key="frame" x="16" y="83.5" width="343" height="120"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="PIa-Xk-ywz"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfh-ga-Bj8" userLabel="Edit Critical Threshold View" customClass="EditThresholdView" customModule="rx7" customModuleProvider="target">
+                                <rect key="frame" x="16" y="219.5" width="343" height="120"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="rIu-li-doZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kfh-ga-Bj8" firstAttribute="top" secondItem="OHk-Em-AIq" secondAttribute="bottom" constant="16" id="28d-tF-LKg"/>
+                            <constraint firstItem="OHk-Em-AIq" firstAttribute="leading" secondItem="yj6-Lm-s6u" secondAttribute="leading" constant="16" id="4PT-yn-0LD"/>
+                            <constraint firstItem="OHk-Em-AIq" firstAttribute="top" secondItem="Xxf-5W-8fL" secondAttribute="bottom" constant="16" id="Aom-6L-xOC"/>
+                            <constraint firstItem="yj6-Lm-s6u" firstAttribute="trailing" secondItem="OHk-Em-AIq" secondAttribute="trailing" constant="16" id="Ism-s9-rOr"/>
+                            <constraint firstItem="kfh-ga-Bj8" firstAttribute="leading" secondItem="yj6-Lm-s6u" secondAttribute="leading" constant="16" id="R7h-Jz-mln"/>
+                            <constraint firstItem="Xxf-5W-8fL" firstAttribute="leading" secondItem="yj6-Lm-s6u" secondAttribute="leading" constant="16" id="Vti-wE-dH6"/>
+                            <constraint firstItem="yj6-Lm-s6u" firstAttribute="trailing" secondItem="kfh-ga-Bj8" secondAttribute="trailing" constant="16" id="dKF-kT-iWL"/>
+                            <constraint firstItem="Xxf-5W-8fL" firstAttribute="top" secondItem="yj6-Lm-s6u" secondAttribute="top" constant="16" id="yuq-aw-eSi"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yj6-Lm-s6u"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1O-Ru-wzC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23" y="-122"/>
+            <point key="canvasLocation" x="21.600000000000001" y="-122.78860569715144"/>
         </scene>
     </scenes>
 </document>
