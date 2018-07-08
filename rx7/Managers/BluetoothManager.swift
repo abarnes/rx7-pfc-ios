@@ -89,6 +89,8 @@ extension BluetoothManager: CBCentralManagerDelegate {
                         advertisementData: [String : Any], rssi RSSI: NSNumber) {
         print("BluteoothManager: peripheral found: \(peripheral)")
         
+        state.next(.connecting)
+        
         connectedPeripheral = peripheral
         if let connectedPeripheral = connectedPeripheral {
             connectedPeripheral.delegate = self
@@ -117,6 +119,8 @@ extension BluetoothManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         guard let characteristics = service.characteristics else { return }
         
+        state.next(.connected)
+        
         for characteristic in characteristics {
             print("BlueteoothManager: didDiscoverCharacteristicsFor \(characteristic)")
 
@@ -124,7 +128,7 @@ extension BluetoothManager: CBPeripheralDelegate {
             
             if characteristic.properties.contains(.notify) {
                 print("BlueteoothManager: \(characteristic.uuid): properties contains .notify")
-                // peripheral.setNotifyValue(true, for: characteristic)
+                peripheral.setNotifyValue(true, for: characteristic)
             }
         }
     }

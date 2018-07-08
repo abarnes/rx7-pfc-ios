@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9323CA120F245E1002078B0 /* EngineDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9323CA020F245E1002078B0 /* EngineDataPoint.swift */; };
 		D93A2F62207EBD7F0059A94E /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A2F60207EBD7F0059A94E /* SettingsTableViewCell.swift */; };
 		D93A2F63207EBD7F0059A94E /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93A2F61207EBD7F0059A94E /* SettingsTableViewCell.xib */; };
 		D93A2F67207EE70F0059A94E /* ThresholdConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A2F66207EE70F0059A94E /* ThresholdConfigViewController.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D9323CA020F245E1002078B0 /* EngineDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineDataPoint.swift; sourceTree = "<group>"; };
 		D93A2F60207EBD7F0059A94E /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = rx7/Views/SettingsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D93A2F61207EBD7F0059A94E /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsTableViewCell.xib; path = rx7/Views/SettingsTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		D93A2F66207EE70F0059A94E /* ThresholdConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdConfigViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			children = (
 				D9CBCF322055C973002D4206 /* BasicEngineData.swift */,
 				D93A2F72208590BE0059A94E /* EngineDataItem.swift */,
+				D9323CA020F245E1002078B0 /* EngineDataPoint.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				D93A2F75208593570059A94E /* ThresholdConfigTableViewCellViewModel.swift in Sources */,
 				D93A2F7F208BC5980059A94E /* EditThresholdViewModel.swift in Sources */,
 				D9CBCF532055F04B002D4206 /* EngineDataCollectionViewCellViewModel.swift in Sources */,
+				D9323CA120F245E1002078B0 /* EngineDataPoint.swift in Sources */,
 				D9CBCF2C205224EE002D4206 /* BluetoothConfig.swift in Sources */,
 				D9CBCF4B2055DFC5002D4206 /* EngineDataStateManager.swift in Sources */,
 				D9CBCF332055C973002D4206 /* BasicEngineData.swift in Sources */,

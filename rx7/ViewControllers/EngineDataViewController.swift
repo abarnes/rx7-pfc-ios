@@ -48,9 +48,10 @@ class EngineDataViewController: UIViewController {
         }.dispose(in: disposeBag)
     }
     
-    private func updateEstimatedLag(from engineData: BasicEngineData) {
+    private func updateEstimatedLag(from engineData: EngineDataPoint) {
+        guard let dataTime = engineData.time else { return }
         let currentTime = Int(Date().timeIntervalSince1970 * 1000)
-        var estimatedLag = (currentTime - engineData.time)
+        var estimatedLag = (currentTime - dataTime)
         if (estimatedLag < 0) {
             estimatedLag = 0
         }
@@ -60,7 +61,7 @@ class EngineDataViewController: UIViewController {
         }
     }
     
-    private func updateCoordinates(from engineData: BasicEngineData) {
+    private func updateCoordinates(from engineData: EngineDataPoint) {
         guard let location = engineData.location else { return }
         
         DispatchQueue.main.async { [weak self] in

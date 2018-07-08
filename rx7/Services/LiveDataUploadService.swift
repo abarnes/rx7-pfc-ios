@@ -25,7 +25,7 @@ class LiveDataUpdateService {
         }.dispose(in: disposeBag)
     }
     
-    private func uploadData(data: BasicEngineData) {
+    private func uploadData(data: EngineDataPoint) {
         
     }
     
