@@ -36,7 +36,6 @@
 		D9CBCF28204E3D02002D4206 /* BlueCapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CBCF22204CE6DF002D4206 /* BlueCapKit.framework */; };
 		D9CBCF29204E3D02002D4206 /* BlueCapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9CBCF22204CE6DF002D4206 /* BlueCapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9CBCF2C205224EE002D4206 /* BluetoothConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBCF2B205224EE002D4206 /* BluetoothConfig.swift */; };
-		D9CBCF332055C973002D4206 /* BasicEngineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBCF322055C973002D4206 /* BasicEngineData.swift */; };
 		D9CBCF352055DC2F002D4206 /* EngineDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBCF342055DC2F002D4206 /* EngineDataViewController.swift */; };
 		D9CBCF3A2055DD81002D4206 /* EngineData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CBCF392055DD81002D4206 /* EngineData.storyboard */; };
 		D9CBCF422055DF46002D4206 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CBCF3F2055DF46002D4206 /* Bond.framework */; };
@@ -102,7 +101,6 @@
 		D9CBCF22204CE6DF002D4206 /* BlueCapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BlueCapKit.framework; path = Carthage/Build/iOS/BlueCapKit.framework; sourceTree = "<group>"; };
 		D9CBCF26204E3CF6002D4206 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		D9CBCF2B205224EE002D4206 /* BluetoothConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConfig.swift; sourceTree = "<group>"; };
-		D9CBCF322055C973002D4206 /* BasicEngineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicEngineData.swift; sourceTree = "<group>"; };
 		D9CBCF342055DC2F002D4206 /* EngineDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineDataViewController.swift; sourceTree = "<group>"; };
 		D9CBCF392055DD81002D4206 /* EngineData.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EngineData.storyboard; sourceTree = "<group>"; };
 		D9CBCF3E2055DF46002D4206 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 		D9CBCF312055C95C002D4206 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D9CBCF322055C973002D4206 /* BasicEngineData.swift */,
 				D93A2F72208590BE0059A94E /* EngineDataItem.swift */,
 				D9323CA020F245E1002078B0 /* EngineDataPoint.swift */,
 			);
@@ -413,7 +410,6 @@
 				D9323CA120F245E1002078B0 /* EngineDataPoint.swift in Sources */,
 				D9CBCF2C205224EE002D4206 /* BluetoothConfig.swift in Sources */,
 				D9CBCF4B2055DFC5002D4206 /* EngineDataStateManager.swift in Sources */,
-				D9CBCF332055C973002D4206 /* BasicEngineData.swift in Sources */,
 				D9CBCF1D204CE191002D4206 /* GpsManager.swift in Sources */,
 				D9CBCF20204CE6AE002D4206 /* BluetoothCentralManager.swift in Sources */,
 				D93A2F62207EBD7F0059A94E /* SettingsTableViewCell.swift in Sources */,

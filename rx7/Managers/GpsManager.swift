@@ -41,7 +41,7 @@ class GpsManager: NSObject {
             foundLocation = locationArray[index]
             break
         }
-        print("correlated location is \(foundLocation)")
+
         return foundLocation
     }
     

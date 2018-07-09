@@ -63,6 +63,10 @@ struct EngineDataPoint {
     private(set) var turboControl: Bool?
     private(set) var pressureRegulatorControl: Bool?
     
+    fileprivate init() {
+            // no-op
+    }
+    
     init(fromData data: Data) {
         guard (data.count > 2) else {
             print("Attempted to initialize EngineDataPoint with insufficient data: (\(data.count) bytes)")
@@ -144,6 +148,63 @@ struct EngineDataPoint {
     
     mutating func addLocation(_ location: CLLocationCoordinate2D) {
         self.location = location
+    }
+    
+    func supercede(with data: EngineDataPoint) -> EngineDataPoint {
+        var newDataPoint = EngineDataPoint()
+        
+        newDataPoint.time = data.time
+        newDataPoint.boost = data.boost ?? self.boost
+        newDataPoint.waterTemp = data.waterTemp ?? self.waterTemp
+        newDataPoint.knock = data.knock ?? self.knock
+        newDataPoint.injectorDuty = data.injectorDuty ?? self.injectorDuty
+        newDataPoint.leadingIgnition = data.leadingIgnition ?? self.leadingIgnition
+        newDataPoint.trailingIgnition = data.trailingIgnition ?? self.trailingIgnition
+        newDataPoint.speed = data.speed ?? self.speed
+        newDataPoint.airTemp = data.airTemp ?? self.airTemp
+        newDataPoint.batteryVoltage = data.batteryVoltage ?? self.batteryVoltage
+        newDataPoint.rpm = data.rpm ?? self.rpm
+        
+        newDataPoint.intakePressure = data.intakePressure ?? self.intakePressure
+        newDataPoint.mapSensorVoltage = data.mapSensorVoltage ?? self.mapSensorVoltage
+        newDataPoint.tpsVoltage = data.tpsVoltage ?? self.tpsVoltage
+        newDataPoint.primaryInjectorPulse = data.primaryInjectorPulse ?? self.primaryInjectorPulse
+        newDataPoint.fuelCorrection = data.fuelCorrection ?? self.fuelCorrection
+        newDataPoint.fuelTemp = data.fuelTemp ?? self.fuelTemp
+        newDataPoint.mopPosition = data.mopPosition ?? self.mopPosition
+        newDataPoint.boostTP = data.boostTP ?? self.boostTP
+        newDataPoint.boostWG = data.boostWG ?? self.boostWG
+        newDataPoint.intakeTemp = data.intakeTemp ?? self.intakeTemp
+        newDataPoint.iscvDuty = data.iscvDuty ?? self.iscvDuty
+        newDataPoint.o2Voltage = data.o2Voltage ?? self.o2Voltage
+        newDataPoint.secondaryInjectorPulse = data.secondaryInjectorPulse ?? self.secondaryInjectorPulse
+        
+        newDataPoint.tpsFullRangeVoltage = data.tpsFullRangeVoltage ?? self.tpsFullRangeVoltage
+        newDataPoint.tpsNarrowRangeVoltage = data.tpsNarrowRangeVoltage ?? self.tpsNarrowRangeVoltage
+        newDataPoint.mopPositionSensorVoltage = data.mopPositionSensorVoltage ?? self.mopPositionSensorVoltage
+        newDataPoint.waterTempSensorVoltage = data.waterTempSensorVoltage ?? self.waterTempSensorVoltage
+        newDataPoint.intakeAirTempSensorVoltage = data.intakeAirTempSensorVoltage ?? self.intakeAirTempSensorVoltage
+        newDataPoint.fuelTempSensorVoltage = data.fuelTempSensorVoltage ?? self.fuelTempSensorVoltage
+        newDataPoint.o2SensorVoltage = data.o2SensorVoltage ?? self.o2SensorVoltage
+        
+        newDataPoint.starterSwitch = data.starterSwitch ?? self.starterSwitch
+        newDataPoint.airConditioningSwitch = data.airConditioningSwitch ?? self.airConditioningSwitch
+        newDataPoint.powerSteeringPressureSwitch = data.powerSteeringPressureSwitch ?? self.powerSteeringPressureSwitch
+        newDataPoint.neutralSwitch = data.neutralSwitch ?? self.neutralSwitch
+        newDataPoint.clutchSwitch = data.clutchSwitch ?? self.clutchSwitch
+        newDataPoint.stopSwitch = data.stopSwitch ?? self.stopSwitch
+        newDataPoint.catalyzerThermoSensorSwitch = data.catalyzerThermoSensorSwitch ?? self.catalyzerThermoSensorSwitch
+        newDataPoint.electricalLoadSwitch = data.electricalLoadSwitch ?? self.electricalLoadSwitch
+        newDataPoint.exhaustTempWarningIndicator = data.exhaustTempWarningIndicator ?? self.exhaustTempWarningIndicator
+        newDataPoint.fuelPumpOperation = data.fuelPumpOperation ?? self.fuelPumpOperation
+        newDataPoint.fuelPumpControl = data.fuelPumpControl ?? self.fuelPumpControl
+        newDataPoint.airPumpRelay = data.airPumpRelay ?? self.airPumpRelay
+        newDataPoint.portAirControl = data.portAirControl ?? self.portAirControl
+        newDataPoint.chargeControl = data.chargeControl ?? self.chargeControl
+        newDataPoint.turboControl = data.turboControl ?? self.turboControl
+        newDataPoint.pressureRegulatorControl = data.pressureRegulatorControl ?? self.pressureRegulatorControl
+        
+        return newDataPoint
     }
     
 }
