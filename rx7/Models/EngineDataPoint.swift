@@ -108,6 +108,34 @@ struct EngineDataPoint {
                 o2Voltage = (Double(data[37..<39].to(UInt16.self)) / 10)
                 secondaryInjectorPulse = Int(data[39..<41].to(UInt16.self))
             
+            case 222: // sensor data
+                time = Int(data[2..<10].to(UInt64.self))
+                mapSensorVoltage = (Double(data[10..<12].to(UInt16.self)) / 10)
+                tpsFullRangeVoltage = (Double(data[12..<14].to(UInt16.self)) / 10)
+                tpsNarrowRangeVoltage = (Double(data[14..<16].to(UInt16.self)) / 10)
+                mopPositionSensorVoltage = (Double(data[16..<18].to(UInt16.self)) / 10)
+                waterTempSensorVoltage = (Double(data[18..<20].to(UInt16.self)) / 10)
+                intakeAirTempSensorVoltage = (Double(data[20..<22].to(UInt16.self)) / 10)
+                fuelTempSensorVoltage = (Double(data[22..<24].to(UInt16.self)) / 10)
+                o2SensorVoltage = (Double(data[24..<26].to(UInt16.self)) / 10)
+            
+                starterSwitch = Int(data[26..<27].to(UInt8.self)) == 1
+                airConditioningSwitch = Int(data[27..<28].to(UInt8.self)) == 1
+                powerSteeringPressureSwitch = Int(data[28..<29].to(UInt8.self)) == 1
+                neutralSwitch = Int(data[29..<30].to(UInt8.self)) == 1
+                clutchSwitch = Int(data[30..<31].to(UInt8.self)) == 1
+                stopSwitch = Int(data[31..<32].to(UInt8.self)) == 1
+                catalyzerThermoSensorSwitch = Int(data[32..<33].to(UInt8.self)) == 1
+                electricalLoadSwitch = Int(data[33..<34].to(UInt8.self)) == 1
+                exhaustTempWarningIndicator = Int(data[34..<35].to(UInt8.self)) == 1
+                fuelPumpOperation = Int(data[35..<36].to(UInt8.self)) == 1
+                fuelPumpControl = Int(data[36..<37].to(UInt8.self)) == 1
+                airPumpRelay = Int(data[37..<38].to(UInt8.self)) == 1
+                portAirControl = Int(data[38..<39].to(UInt8.self)) == 1
+                chargeControl = Int(data[39..<40].to(UInt8.self)) == 1
+                turboControl = Int(data[40..<41].to(UInt8.self)) == 1
+                pressureRegulatorControl = Int(data[41..<42].to(UInt8.self)) == 1
+            
             default:
                 return
         }
