@@ -17,8 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let _ = BluetoothManager.singleton // initialize bluetooth
+        let _ = EngineDataStateManager.singleton
         
         FirebaseApp.configure()
+        
+        let _ = RemoteDatabaseManager.singleton
         
         return true
     }

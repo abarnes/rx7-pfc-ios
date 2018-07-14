@@ -207,4 +207,13 @@ struct EngineDataPoint {
         return newDataPoint
     }
     
+    func convertToFirestoreData() -> [String: Any] {
+        return [
+            "rpm": self.rpm,
+            "speed": self.speed,
+            "boost": self.boost,
+            "injectorDuty": self.injectorDuty
+        ]
+    }
+    
 }

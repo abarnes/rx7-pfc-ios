@@ -12,8 +12,6 @@
 		D93A2F63207EBD7F0059A94E /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93A2F61207EBD7F0059A94E /* SettingsTableViewCell.xib */; };
 		D93A2F67207EE70F0059A94E /* ThresholdConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A2F66207EE70F0059A94E /* ThresholdConfigViewController.swift */; };
 		D93A2F6B207EE7840059A94E /* ThresholdConfig.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93A2F6A207EE7840059A94E /* ThresholdConfig.storyboard */; };
-		D93A2F6F208590330059A94E /* ThresholdConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A2F6D208590330059A94E /* ThresholdConfigTableViewCell.swift */; };
-		D93A2F70208590330059A94E /* ThresholdConfigTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93A2F6E208590330059A94E /* ThresholdConfigTableViewCell.xib */; };
 		D93A2F73208590BE0059A94E /* EngineDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A2F72208590BE0059A94E /* EngineDataItem.swift */; };
 		D93A2F75208593570059A94E /* ThresholdConfigTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A2F74208593570059A94E /* ThresholdConfigTableViewCellViewModel.swift */; };
 		D93A2F7720859CAF0059A94E /* EditThresholdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A2F7620859CAF0059A94E /* EditThresholdViewController.swift */; };
@@ -49,6 +47,11 @@
 		D9B51CDE20F4571B00CEA24D /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96608D920F44E3A00A4C54E /* leveldb-library.framework */; };
 		D9B51CDF20F4571B00CEA24D /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96608C320F44DB200A4C54E /* nanopb.framework */; };
 		D9B51CE020F4571B00CEA24D /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96608D020F44DF600A4C54E /* Protobuf.framework */; };
+		D9B51CE320F581BA00CEA24D /* ThresholdConfigTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9B51CE120F581B900CEA24D /* ThresholdConfigTableViewCell.xib */; };
+		D9B51CE420F581BA00CEA24D /* ThresholdConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B51CE220F581BA00CEA24D /* ThresholdConfigTableViewCell.swift */; };
+		D9B51CE620F5840800CEA24D /* RemoteDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B51CE520F5840800CEA24D /* RemoteDatabaseManager.swift */; };
+		D9B51CE820F5844800CEA24D /* Drive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B51CE720F5844800CEA24D /* Drive.swift */; };
+		D9B51CEB20F5884D00CEA24D /* RandomStringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B51CEA20F5884D00CEA24D /* RandomStringGenerator.swift */; };
 		D9BCA029207C4244003559E9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BCA028207C4244003559E9 /* Alamofire.framework */; };
 		D9BCA02A207C4244003559E9 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9BCA028207C4244003559E9 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9BCA02D207C430C003559E9 /* LiveDataUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCA02C207C430C003559E9 /* LiveDataUploadService.swift */; };
@@ -97,8 +100,6 @@
 		D93A2F61207EBD7F0059A94E /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsTableViewCell.xib; path = rx7/Views/SettingsTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		D93A2F66207EE70F0059A94E /* ThresholdConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdConfigViewController.swift; sourceTree = "<group>"; };
 		D93A2F6A207EE7840059A94E /* ThresholdConfig.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ThresholdConfig.storyboard; sourceTree = "<group>"; };
-		D93A2F6D208590330059A94E /* ThresholdConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdConfigTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		D93A2F6E208590330059A94E /* ThresholdConfigTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThresholdConfigTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		D93A2F72208590BE0059A94E /* EngineDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineDataItem.swift; sourceTree = "<group>"; };
 		D93A2F74208593570059A94E /* ThresholdConfigTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThresholdConfigTableViewCellViewModel.swift; path = rx7/ViewModels/ThresholdConfigTableViewCellViewModel.swift; sourceTree = SOURCE_ROOT; };
 		D93A2F7620859CAF0059A94E /* EditThresholdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditThresholdViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +142,11 @@
 		D966097020F4550D00A4C54E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D98B1AAB207E9C9E005A7DB3 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		D9B51CCD20F456DA00CEA24D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D9B51CE120F581B900CEA24D /* ThresholdConfigTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThresholdConfigTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		D9B51CE220F581BA00CEA24D /* ThresholdConfigTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThresholdConfigTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		D9B51CE520F5840800CEA24D /* RemoteDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabaseManager.swift; sourceTree = "<group>"; };
+		D9B51CE720F5844800CEA24D /* Drive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drive.swift; sourceTree = "<group>"; };
+		D9B51CEA20F5884D00CEA24D /* RandomStringGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomStringGenerator.swift; sourceTree = "<group>"; };
 		D9BCA028207C4244003559E9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D9BCA02C207C430C003559E9 /* LiveDataUploadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LiveDataUploadService.swift; path = rx7/Services/LiveDataUploadService.swift; sourceTree = SOURCE_ROOT; };
 		D9CBCF02204CDEA5002D4206 /* rx7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rx7.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,8 +232,8 @@
 			children = (
 				D93A2F7A208BBAEB0059A94E /* EditThresholdView.xib */,
 				D93A2F7C208BBB920059A94E /* EditThresholdView.swift */,
-				D93A2F6D208590330059A94E /* ThresholdConfigTableViewCell.swift */,
-				D93A2F6E208590330059A94E /* ThresholdConfigTableViewCell.xib */,
+				D9B51CE220F581BA00CEA24D /* ThresholdConfigTableViewCell.swift */,
+				D9B51CE120F581B900CEA24D /* ThresholdConfigTableViewCell.xib */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -238,6 +244,14 @@
 				D96608E820F44EE800A4C54E /* Firebase.h */,
 			);
 			path = Headers;
+			sourceTree = "<group>";
+		};
+		D9B51CE920F5883800CEA24D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D9B51CEA20F5884D00CEA24D /* RandomStringGenerator.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		D9BCA02B207C42C2003559E9 /* Services */ = {
@@ -297,6 +311,7 @@
 				D9CBCF1E204CE199002D4206 /* Managers */,
 				D9CBCF312055C95C002D4206 /* Models */,
 				D9CBCF1B204CE137002D4206 /* Storyboards */,
+				D9B51CE920F5883800CEA24D /* Utils */,
 				D9CBCF1A204CE120002D4206 /* ViewControllers */,
 				D9CBCF512055E5B9002D4206 /* ViewModels */,
 				D9CBCF4E2055E486002D4206 /* Views */,
@@ -336,6 +351,7 @@
 			children = (
 				D9CBCF1C204CE191002D4206 /* GpsManager.swift */,
 				D9CBCF4A2055DFC5002D4206 /* EngineDataStateManager.swift */,
+				D9B51CE520F5840800CEA24D /* RemoteDatabaseManager.swift */,
 				D98B1AAB207E9C9E005A7DB3 /* BluetoothManager.swift */,
 				D9CBCF2B205224EE002D4206 /* BluetoothConfig.swift */,
 			);
@@ -377,6 +393,7 @@
 			children = (
 				D93A2F72208590BE0059A94E /* EngineDataItem.swift */,
 				D9323CA020F245E1002078B0 /* EngineDataPoint.swift */,
+				D9B51CE720F5844800CEA24D /* Drive.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -478,10 +495,10 @@
 				D9CBCF5B2055F0C6002D4206 /* Main.storyboard in Resources */,
 				D93A2F7920859CC70059A94E /* EditThreshold.storyboard in Resources */,
 				D93A2F6B207EE7840059A94E /* ThresholdConfig.storyboard in Resources */,
+				D9B51CE320F581BA00CEA24D /* ThresholdConfigTableViewCell.xib in Resources */,
 				D93C0682205B267D00C9E6B5 /* Settings.storyboard in Resources */,
 				D93A2F7B208BBAEB0059A94E /* EditThresholdView.xib in Resources */,
 				D9CBCF5F2055F0D9002D4206 /* Home.storyboard in Resources */,
-				D93A2F70208590330059A94E /* ThresholdConfigTableViewCell.xib in Resources */,
 				D9CBCF5A2055F0C6002D4206 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,20 +530,23 @@
 				D93A2F67207EE70F0059A94E /* ThresholdConfigViewController.swift in Sources */,
 				D9CBCF352055DC2F002D4206 /* EngineDataViewController.swift in Sources */,
 				D93C0684205B27EA00C9E6B5 /* SettingsTableViewController.swift in Sources */,
+				D9B51CE420F581BA00CEA24D /* ThresholdConfigTableViewCell.swift in Sources */,
 				D93A2F75208593570059A94E /* ThresholdConfigTableViewCellViewModel.swift in Sources */,
 				D93A2F7F208BC5980059A94E /* EditThresholdViewModel.swift in Sources */,
 				D9CBCF532055F04B002D4206 /* EngineDataCollectionViewCellViewModel.swift in Sources */,
 				D9323CA120F245E1002078B0 /* EngineDataPoint.swift in Sources */,
 				D9CBCF2C205224EE002D4206 /* BluetoothConfig.swift in Sources */,
 				D9CBCF4B2055DFC5002D4206 /* EngineDataStateManager.swift in Sources */,
+				D9B51CE620F5840800CEA24D /* RemoteDatabaseManager.swift in Sources */,
 				D9CBCF1D204CE191002D4206 /* GpsManager.swift in Sources */,
 				D93A2F62207EBD7F0059A94E /* SettingsTableViewCell.swift in Sources */,
 				D93A2F73208590BE0059A94E /* EngineDataItem.swift in Sources */,
+				D9B51CEB20F5884D00CEA24D /* RandomStringGenerator.swift in Sources */,
 				D93A2F7D208BBB920059A94E /* EditThresholdView.swift in Sources */,
 				D9CBCF572055F060002D4206 /* Data.swift in Sources */,
-				D93A2F6F208590330059A94E /* ThresholdConfigTableViewCell.swift in Sources */,
 				D93A2F7720859CAF0059A94E /* EditThresholdViewController.swift in Sources */,
 				D9CBCF552055F054002D4206 /* EngineDataCollectionViewCell.swift in Sources */,
+				D9B51CE820F5844800CEA24D /* Drive.swift in Sources */,
 				D98B1AAC207E9C9E005A7DB3 /* BluetoothManager.swift in Sources */,
 				D9CBCF06204CDEA5002D4206 /* AppDelegate.swift in Sources */,
 				D9CBCF08204CDEA5002D4206 /* HomeViewController.swift in Sources */,

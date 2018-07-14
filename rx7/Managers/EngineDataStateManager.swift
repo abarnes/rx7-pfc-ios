@@ -13,6 +13,7 @@ class EngineDataStateManager {
     
     private(set) static var singleton = EngineDataStateManager()
     fileprivate(set) var current = Observable<EngineDataPoint?>(nil)
+    fileprivate(set) var didBeginDrive = Observable<Bool>(false)
     
     init() {
         subscribeToEngineData()
@@ -25,6 +26,10 @@ class EngineDataStateManager {
             var newData = EngineDataPoint(fromData: data)
             if let time = newData.time, let location = GpsManager.singleton.findLocationForTime(time) {
                 newData.addLocation(location)
+            }
+            
+            if (!self.didBeginDrive.value && ((newData.rpm ?? 0) > 1)) {
+                self.didBeginDrive.next(true)
             }
             
             if let currentData = self.current.value {
