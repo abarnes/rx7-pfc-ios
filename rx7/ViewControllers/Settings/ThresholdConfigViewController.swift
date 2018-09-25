@@ -58,7 +58,6 @@ extension ThresholdConfigViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(EngineDataItem.count)
         return EngineDataItem.count
     }
     
@@ -90,9 +89,18 @@ extension ThresholdConfigViewController {
         guard indexPath.row < EngineDataItem.count else { return }
         if let dataItem = EngineDataItem(rawValue: indexPath.row) {
             let storyboard = UIStoryboard(name: Constants.editThresholdStoryboardFileName, bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: Constants.editThresholdStoryboardId)
+            guard let controller = storyboard.instantiateViewController(withIdentifier: Constants.editThresholdStoryboardId) as? EditThresholdViewController else { return }
             
-            self.navigationController?.pushViewController(controller, animated: true)
+            ThresholdDataManager.singleton.getThreshold(for: dataItem) { (threshold) in
+                guard let threshold = threshold else {
+                    // TODO show an error
+                    return
+                }
+                
+                controller.viewModel = EditThresholdViewControllerViewModel(dataItem: dataItem, threshold: threshold, parameters: dataItem.editThresholdParameters)
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+            
         }
     }
     

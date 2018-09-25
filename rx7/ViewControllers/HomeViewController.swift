@@ -12,6 +12,7 @@ import ReactiveKit
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var connectionStatus: UILabel!
+    @IBOutlet weak var driveCodeLabel: UILabel!
     
     private var disposeBag = DisposeBag()
     
@@ -29,8 +30,14 @@ class HomeViewController: UIViewController {
 
     private func setupObservers() {
         disposeBag.dispose()
+        
         BluetoothManager.singleton.state.observeNext { [weak self] (state) in
             self?.connectionStatus.text = state.rawValue
+        }.dispose(in: disposeBag)
+        
+        EngineDataStateManager.singleton.didBeginDrive.observeNext { [weak self] (didBegin) in
+            guard didBegin else { return }
+            self?.driveCodeLabel.text = RemoteDatabaseManager.singleton.drive?.code
         }.dispose(in: disposeBag)
     }
 

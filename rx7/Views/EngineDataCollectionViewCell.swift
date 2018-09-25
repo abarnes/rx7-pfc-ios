@@ -23,6 +23,10 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
     private func setupObservers() {
         guard let viewModel = viewModel else { return }
         

@@ -57,7 +57,7 @@ extension GpsManager: CLLocationManagerDelegate {
             // publish update over bluetooth
             // BluetoothManager.singleton.write("\(location)".data(using: .utf8)!, forCharacteristic: BluetoothConfig.Characteristics.gpsReceiver)
             
-            print("locations = \(location.latitude) \(location.longitude)")
+            // print("locations = \(location.latitude) \(location.longitude)")
         }
     }
     

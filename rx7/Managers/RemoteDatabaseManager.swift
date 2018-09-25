@@ -15,7 +15,7 @@ class RemoteDatabaseManager {
     private(set) static var singleton = RemoteDatabaseManager()
     
     private let engineDataStateManager = EngineDataStateManager.singleton
-    private var drive: Drive?
+    private(set) var drive: Drive? // this should move to EngineDataStateManager
     private let disposeBag = DisposeBag()
     
     private let db = Firestore.firestore()
@@ -48,16 +48,8 @@ class RemoteDatabaseManager {
     
     private func subscribeToEngineData() {
         _ = engineDataStateManager.current.observeNext { [weak self] (engineDataPoint) in
-            guard let `self` = self, let engineDataPoint = engineDataPoint, let driveRef = self.driveDatabaseRef else { return }
-            
-            // format data
-            
-            // write it to firestore
-            driveRef.collection(Constants.DriveDatapointsCollection).addDocument(data: engineDataPoint.convertToFirestoreData()) { error in
-                guard let error = error else { return }
-                print("Error writing enignie data to Firebase: \(error)")
-            }
-            
+            guard let engineDataPoint = engineDataPoint, let driveRef = self?.driveDatabaseRef else { return }
+            driveRef.collection(Constants.DriveDatapointsCollection).addDocument(data: engineDataPoint.convertToFirestoreData())
         }.dispose(in: disposeBag)
     }
     

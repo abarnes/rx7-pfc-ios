@@ -62,6 +62,9 @@ enum EngineDataItem: Int {
     case turboControl
     case pressureRegulatorControl
     
+    // static var count: Int { return EngineDataItem.pressureRegulatorControl.hashValue + 1 } // TODO figure out why this broke in iOS 12
+    static var count: Int { return 46 }
+    
     var title: String {
         switch self {
         case .rpm:
@@ -159,8 +162,6 @@ enum EngineDataItem: Int {
         // If anything gets added, update the count property below
         }
     }
-    
-    static var count: Int { return EngineDataItem.pressureRegulatorControl.hashValue + 1 }
     
     var editThresholdParameters: EditThresholdParameters {
         switch self {

@@ -10,10 +10,23 @@ import UIKit
 
 class EditThresholdViewController: UIViewController {
 
+    @IBOutlet weak var warningEditor: EditThresholdView!
+    @IBOutlet weak var criticalEditor: EditThresholdView!
+    
+    var viewModel: EditThresholdViewControllerViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let viewModel = viewModel else { return }
+        
+        warningEditor.viewModel = EditThresholdViewModel(type: .warning, value: viewModel.currentValue.warning, editParameters: viewModel.editParameters)
+        criticalEditor.viewModel = EditThresholdViewModel(type: .critical, value: viewModel.currentValue.critical, editParameters: viewModel.editParameters)
     }
 
     override func didReceiveMemoryWarning() {

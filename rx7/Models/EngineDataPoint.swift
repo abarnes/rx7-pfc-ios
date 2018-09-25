@@ -208,11 +208,23 @@ struct EngineDataPoint {
     }
     
     func convertToFirestoreData() -> [String: Any] {
+        var timestamp: Double = 0
+        if let time = self.time {
+            timestamp = Double(time) / 1000
+        }
+        
         return [
-            "rpm": self.rpm,
-            "speed": self.speed,
-            "boost": self.boost,
-            "injectorDuty": self.injectorDuty
+            "timestamp": timestamp,
+            "boost": self.boost as Any,
+            "waterTemp": self.waterTemp as Any,
+            "knock": self.knock as Any,
+            "injectorDuty": self.injectorDuty as Any,
+            "leadingIgnition": self.leadingIgnition as Any,
+            "trailingIgnition": self.trailingIgnition as Any,
+            "speed": self.speed as Any,
+            "airTemp": self.airTemp as Any,
+            "batteryVoltage": self.batteryVoltage as Any,
+            "rpm": self.rpm as Any
         ]
     }
     

@@ -2,49 +2,45 @@
 //  EditThresholdViewModel.swift
 //  rx7
 //
-//  Created by Austin Barnes on 4/21/18.
+//  Created by Austin Barnes on 8/31/18.
 //  Copyright © 2018 Austin Barnes. All rights reserved.
 //
 
 import Foundation
+import Bond
 
-enum ThresholdType {
-    case warning
-    case critical
-}
-
-struct EditThresholdParameters {
+class EditThresholdViewModel {
     
-    private var usesIntegers: Bool
-    private var min: Double
-    private var max: Double
-    private var step: Double
+    private(set) var type: ThresholdType
+    private(set) var editParameters: EditThresholdParameters
     
-    init(min: Double, max: Double, step: Double) {
-        self.usesIntegers = false
-        self.min = min
-        self.max = max
-        self.step = step
+    private(set) var currentValue = Observable<Double>(0)
+    private(set) var currentIsGreaterThan = Observable<Bool>(true)
+    private(set) var currentEnabled = Observable<Bool>(true)
+    
+    init(type: ThresholdType, value: ThresholdItem, editParameters: EditThresholdParameters) {
+        self.type = type
+        self.editParameters = editParameters
+        
+        currentValue.next(value.value)
+        currentIsGreaterThan.next(value.greaterThan)
+        currentEnabled.next(value.enabled)
     }
     
-    init(min: Int, max: Int, step: Int) {
-        self.usesIntegers = true
-        self.min = Double(min)
-        self.max = Double(max)
-        self.step = Double(step)
+    func updateCurrentValue(_ value: Double) {
+        currentValue.next(value)
     }
     
-}
-
-struct EditThresholdViewModel {
-    
-    private(set) var dataItem: EngineDataItem
-    private(set) var thresholdType: ThresholdType
-    private(set) var currentValue: Double
-    
-    init(dataItem: EngineDataItem, thresholdType: ThresholdType) {
-        self.dataItem = dataItem
-        self.thresholdType = thresholdType
-        self.currentValue = 0
+    func toggleEnabled(_ enabled: Bool) {
+        print("Toggling threshold enabled: \(enabled)")
+        currentEnabled.next(enabled)
     }
+    
+    func toggleDirection(isGreaterThan: Bool) {
+        print("Direction changed isGreaterThan: \(isGreaterThan)")
+        currentIsGreaterThan.next(isGreaterThan)
+    }
+    
+    
+    
 }

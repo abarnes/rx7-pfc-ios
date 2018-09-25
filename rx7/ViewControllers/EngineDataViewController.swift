@@ -19,12 +19,14 @@ class EngineDataViewController: UIViewController {
     private var disposeBag = DisposeBag()
     
     fileprivate struct Constants {
+        static let cellNibName = "EngineDataCollectionViewCell"
         static let engineDataCollectionViewCellIdentifier = "engineDataCell"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        collectionView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellWithReuseIdentifier: Constants.engineDataCollectionViewCellIdentifier)
         
         setupObservers()
     }

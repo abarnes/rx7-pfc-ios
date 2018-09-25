@@ -19,9 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let _ = BluetoothManager.singleton // initialize bluetooth
         let _ = EngineDataStateManager.singleton
         
-        FirebaseApp.configure()
+        // TODO re-enable firebase later
+        // FirebaseApp.configure()
         
-        let _ = RemoteDatabaseManager.singleton
+        // let _ = RemoteDatabaseManager.singleton
         
         return true
     }
