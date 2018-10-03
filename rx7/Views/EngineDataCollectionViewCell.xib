@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,34 +19,49 @@
                 <rect key="frame" x="0.0" y="0.0" width="219" height="152"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water Temp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4T-LT-any">
-                        <rect key="frame" x="31" y="23" width="157" height="24"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="190º" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="302-SX-JFf">
-                        <rect key="frame" x="26" y="75" width="167" height="52.5"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="45"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hm0-xY-kaX">
+                        <rect key="frame" x="0.0" y="0.0" width="219" height="152"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="749" text="Water Temp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4T-LT-any">
+                                <rect key="frame" x="8" y="30" width="203" height="21.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="190º" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="302-SX-JFf">
+                                <rect key="frame" x="8" y="69.5" width="203" height="52.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="l4T-LT-any" firstAttribute="top" secondItem="hm0-xY-kaX" secondAttribute="top" constant="30" id="63r-wM-huw"/>
+                            <constraint firstAttribute="trailing" secondItem="l4T-LT-any" secondAttribute="trailing" constant="8" id="D91-HU-YOR"/>
+                            <constraint firstAttribute="bottom" secondItem="302-SX-JFf" secondAttribute="bottom" constant="30" id="c7q-az-IXt"/>
+                            <constraint firstAttribute="width" constant="219" id="e4y-mZ-nzN"/>
+                            <constraint firstItem="l4T-LT-any" firstAttribute="leading" secondItem="hm0-xY-kaX" secondAttribute="leading" constant="8" id="rgA-Xz-vRh"/>
+                            <constraint firstAttribute="trailing" secondItem="302-SX-JFf" secondAttribute="trailing" constant="8" id="t7j-F9-OEJ"/>
+                            <constraint firstItem="302-SX-JFf" firstAttribute="leading" secondItem="hm0-xY-kaX" secondAttribute="leading" constant="8" id="ukR-h5-Xlp"/>
+                            <constraint firstItem="302-SX-JFf" firstAttribute="top" secondItem="l4T-LT-any" secondAttribute="bottom" constant="18" id="w5l-A1-geR"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailingMargin" secondItem="l4T-LT-any" secondAttribute="trailing" constant="15" id="LDP-9V-Ugk"/>
-                <constraint firstItem="l4T-LT-any" firstAttribute="top" secondItem="Hbv-ZM-80u" secondAttribute="topMargin" constant="23" id="PWi-no-GW4"/>
-                <constraint firstItem="302-SX-JFf" firstAttribute="top" secondItem="l4T-LT-any" secondAttribute="bottom" constant="28" id="asx-LP-FXh"/>
-                <constraint firstItem="302-SX-JFf" firstAttribute="leading" secondItem="Hbv-ZM-80u" secondAttribute="leadingMargin" constant="10" id="efr-uS-kUC"/>
-                <constraint firstItem="l4T-LT-any" firstAttribute="leading" secondItem="Hbv-ZM-80u" secondAttribute="leadingMargin" constant="15" id="kBe-7N-psp"/>
-                <constraint firstAttribute="trailingMargin" secondItem="302-SX-JFf" secondAttribute="trailing" constant="10" id="sh0-VM-M2R"/>
+                <constraint firstItem="hm0-xY-kaX" firstAttribute="leading" secondItem="Hbv-ZM-80u" secondAttribute="leading" id="7aI-mn-UXY"/>
+                <constraint firstAttribute="trailing" secondItem="hm0-xY-kaX" secondAttribute="trailing" id="GXn-Rh-TtO"/>
+                <constraint firstAttribute="bottom" secondItem="hm0-xY-kaX" secondAttribute="bottom" id="Z10-Qd-en3"/>
+                <constraint firstItem="hm0-xY-kaX" firstAttribute="top" secondItem="Hbv-ZM-80u" secondAttribute="top" id="g7x-fm-muu"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="9M7-IB-BzK"/>
             <size key="customSize" width="219" height="152"/>
             <connections>
                 <outlet property="title" destination="l4T-LT-any" id="EbL-EC-7bA"/>
                 <outlet property="value" destination="302-SX-JFf" id="OhR-sq-AZ9"/>
+                <outlet property="widthConstraint" destination="e4y-mZ-nzN" id="hml-ys-5OM"/>
             </connections>
             <point key="canvasLocation" x="81.5" y="20"/>
         </collectionViewCell>

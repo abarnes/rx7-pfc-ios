@@ -28,6 +28,10 @@ class EngineDataViewController: UIViewController {
         
         collectionView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellWithReuseIdentifier: Constants.engineDataCollectionViewCellIdentifier)
         
+        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(width: 1,height: 1)
+        }
+        
         setupObservers()
     }
     

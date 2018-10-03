@@ -13,6 +13,7 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var value: UILabel!
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     
     private var disposeBag = DisposeBag()
     
@@ -25,6 +26,10 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        let screenWidth = UIScreen.main.bounds.size.width
+        widthConstraint.constant = screenWidth - (2 * 12)
     }
     
     private func setupObservers() {
