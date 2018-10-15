@@ -20,6 +20,8 @@ class SettingsTableViewController: UITableViewController {
         static let settingsTableCellIdentifier = "SettingsTableViewCell"
         static let thresholdConfigStoryboardFileName = "ThresholdConfig"
         static let thresholdConfigStoryboardId = "ThresholdConfigViewController"
+        static let gaugeConfigStoryboardFileName = "GaugeConfig"
+        static let gaugeConfigStoryboardId = "GaugeConfigViewController"
         static let cellNibName = "SettingsTableViewCell"
         
     }
@@ -82,7 +84,10 @@ extension SettingsTableViewController {
         
         switch selectedSettingsSection {
         case .gauges:
-            print("gauges")
+            let storyboard = UIStoryboard(name: Constants.gaugeConfigStoryboardFileName, bundle: nil)
+            guard let controller = storyboard.instantiateViewController(withIdentifier: Constants.gaugeConfigStoryboardId) as? GaugeConfigViewController else { return }
+            controller.viewModel = GaugeConfigViewControllerViewModel()
+            self.navigationController?.pushViewController(controller, animated: true)
         case .thresholds:
             let storyboard = UIStoryboard(name: Constants.thresholdConfigStoryboardFileName, bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: Constants.thresholdConfigStoryboardId)

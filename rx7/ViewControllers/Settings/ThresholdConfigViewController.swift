@@ -11,6 +11,7 @@ import UIKit
 class ThresholdConfigViewController: UITableViewController {
 
     struct Constants {
+        static let cellNibName = "ThresholdConfigTableViewCell"
         static let thresholdConfigTableCellIdentifier = "thresholdConfigCell"
         static let editThresholdStoryboardFileName = "EditThreshold"
         static let editThresholdStoryboardId = "EditThresholdViewController"
@@ -20,7 +21,7 @@ class ThresholdConfigViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UINib(nibName: "ThresholdConfigTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.thresholdConfigTableCellIdentifier)
+        tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.thresholdConfigTableCellIdentifier)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -100,7 +101,6 @@ extension ThresholdConfigViewController {
                 controller.viewModel = EditThresholdViewControllerViewModel(dataItem: dataItem, threshold: threshold, parameters: dataItem.editThresholdParameters)
                 self.navigationController?.pushViewController(controller, animated: true)
             }
-            
         }
     }
     

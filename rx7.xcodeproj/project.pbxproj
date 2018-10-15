@@ -81,6 +81,17 @@
 		D9CBCF5A2055F0C6002D4206 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CBCF582055F0C5002D4206 /* LaunchScreen.storyboard */; };
 		D9CBCF5B2055F0C6002D4206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CBCF592055F0C6002D4206 /* Main.storyboard */; };
 		D9CBCF5F2055F0D9002D4206 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CBCF5D2055F0D9002D4206 /* Home.storyboard */; };
+		D9F8C3EA2171382900D02309 /* GaugeConfig.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F8C3E92171382900D02309 /* GaugeConfig.storyboard */; };
+		D9F8C3EC2171388B00D02309 /* GaugeConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F8C3EB2171388B00D02309 /* GaugeConfigViewController.swift */; };
+		D9F8C3EE217139EB00D02309 /* GaugeConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F8C3ED217139EB00D02309 /* GaugeConfigManager.swift */; };
+		D9F8C3F021713C1500D02309 /* GaugeConfigViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F8C3EF21713C1500D02309 /* GaugeConfigViewControllerViewModel.swift */; };
+		D9F8C3F32172E33B00D02309 /* GaugeConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F8C3F12172E33B00D02309 /* GaugeConfigTableViewCell.swift */; };
+		D9F8C3F42172E33C00D02309 /* GaugeConfigTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9F8C3F22172E33B00D02309 /* GaugeConfigTableViewCell.xib */; };
+		D9F8C3F62172EBC500D02309 /* GaugeConfigTableHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9F8C3F52172EBC500D02309 /* GaugeConfigTableHeaderCell.xib */; };
+		D9F8C3F82172EE0500D02309 /* GaugeConfigTableHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F8C3F72172EE0500D02309 /* GaugeConfigTableHeaderCell.swift */; };
+		D9F8C3FA2173BB8200D02309 /* AddGaugeConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F8C3F92173BB8200D02309 /* AddGaugeConfigViewController.swift */; };
+		D9F8C3FC2173BB9B00D02309 /* AddGaugeConfig.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F8C3FB2173BB9B00D02309 /* AddGaugeConfig.storyboard */; };
+		D9F8C3FE2173BC9700D02309 /* AddGaugeConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F8C3FD2173BC9700D02309 /* AddGaugeConfigTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -181,6 +192,17 @@
 		D9CBCF582055F0C5002D4206 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9CBCF592055F0C6002D4206 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D9CBCF5D2055F0D9002D4206 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		D9F8C3E92171382900D02309 /* GaugeConfig.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GaugeConfig.storyboard; sourceTree = "<group>"; };
+		D9F8C3EB2171388B00D02309 /* GaugeConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeConfigViewController.swift; sourceTree = "<group>"; };
+		D9F8C3ED217139EB00D02309 /* GaugeConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeConfigManager.swift; sourceTree = "<group>"; };
+		D9F8C3EF21713C1500D02309 /* GaugeConfigViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GaugeConfigViewControllerViewModel.swift; path = "rx7/New Group2/GaugeConfigViewControllerViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		D9F8C3F12172E33B00D02309 /* GaugeConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GaugeConfigTableViewCell.swift; path = rx7/Views/Settings/GaugeConfigTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		D9F8C3F22172E33B00D02309 /* GaugeConfigTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GaugeConfigTableViewCell.xib; path = rx7/Views/Settings/GaugeConfigTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		D9F8C3F52172EBC500D02309 /* GaugeConfigTableHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GaugeConfigTableHeaderCell.xib; path = rx7/Views/Settings/GaugeConfigTableHeaderCell.xib; sourceTree = SOURCE_ROOT; };
+		D9F8C3F72172EE0500D02309 /* GaugeConfigTableHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GaugeConfigTableHeaderCell.swift; path = rx7/Views/Settings/GaugeConfigTableHeaderCell.swift; sourceTree = SOURCE_ROOT; };
+		D9F8C3F92173BB8200D02309 /* AddGaugeConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGaugeConfigViewController.swift; sourceTree = "<group>"; };
+		D9F8C3FB2173BB9B00D02309 /* AddGaugeConfig.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGaugeConfig.storyboard; sourceTree = "<group>"; };
+		D9F8C3FD2173BC9700D02309 /* AddGaugeConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddGaugeConfigTableViewCell.swift; path = rx7/Views/Settings/AddGaugeConfigTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,8 +246,10 @@
 		D93A2F69207EE7240059A94E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				D93A2F66207EE70F0059A94E /* ThresholdConfigViewController.swift */,
+				D9F8C3F92173BB8200D02309 /* AddGaugeConfigViewController.swift */,
 				D93A2F7620859CAF0059A94E /* EditThresholdViewController.swift */,
+				D9F8C3EB2171388B00D02309 /* GaugeConfigViewController.swift */,
+				D93A2F66207EE70F0059A94E /* ThresholdConfigViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -233,8 +257,10 @@
 		D93A2F6C207EE7890059A94E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				D93A2F6A207EE7840059A94E /* ThresholdConfig.storyboard */,
+				D9F8C3FB2173BB9B00D02309 /* AddGaugeConfig.storyboard */,
 				D93A2F7820859CC70059A94E /* EditThreshold.storyboard */,
+				D9F8C3E92171382900D02309 /* GaugeConfig.storyboard */,
+				D93A2F6A207EE7840059A94E /* ThresholdConfig.storyboard */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -242,8 +268,13 @@
 		D93A2F712085903A0059A94E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				D9F8C3FD2173BC9700D02309 /* AddGaugeConfigTableViewCell.swift */,
 				D93A2F7A208BBAEB0059A94E /* EditThresholdView.xib */,
 				D93A2F7C208BBB920059A94E /* EditThresholdView.swift */,
+				D9F8C3F12172E33B00D02309 /* GaugeConfigTableViewCell.swift */,
+				D9F8C3F22172E33B00D02309 /* GaugeConfigTableViewCell.xib */,
+				D9F8C3F72172EE0500D02309 /* GaugeConfigTableHeaderCell.swift */,
+				D9F8C3F52172EBC500D02309 /* GaugeConfigTableHeaderCell.xib */,
 				D9B51CE220F581BA00CEA24D /* ThresholdConfigTableViewCell.swift */,
 				D9B51CE120F581B900CEA24D /* ThresholdConfigTableViewCell.xib */,
 			);
@@ -367,6 +398,7 @@
 				D9CBCF1C204CE191002D4206 /* GpsManager.swift */,
 				D9B51CE520F5840800CEA24D /* RemoteDatabaseManager.swift */,
 				D99568312139E124007F8CDF /* ThresholdDataManager.swift */,
+				D9F8C3ED217139EB00D02309 /* GaugeConfigManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -433,6 +465,7 @@
 				D93A2F7E208BC5980059A94E /* EditThresholdViewControllerViewModel.swift */,
 				D99568392139EE08007F8CDF /* EditThresholdViewModel.swift */,
 				D9CBCF522055F04A002D4206 /* EngineDataCollectionViewCellViewModel.swift */,
+				D9F8C3EF21713C1500D02309 /* GaugeConfigViewControllerViewModel.swift */,
 				D93A2F74208593570059A94E /* ThresholdConfigTableViewCellViewModel.swift */,
 			);
 			name = ViewModels;
@@ -510,9 +543,12 @@
 				D93A2F63207EBD7F0059A94E /* SettingsTableViewCell.xib in Resources */,
 				D965E1C921419BAE0093FA0A /* EngineDataCollectionViewCell.xib in Resources */,
 				D96608E620F44E5600A4C54E /* gRPCCertificates.bundle in Resources */,
+				D9F8C3F62172EBC500D02309 /* GaugeConfigTableHeaderCell.xib in Resources */,
 				D9CBCF3A2055DD81002D4206 /* EngineData.storyboard in Resources */,
 				D9CBCF0F204CDEA5002D4206 /* Assets.xcassets in Resources */,
 				D9CBCF5B2055F0C6002D4206 /* Main.storyboard in Resources */,
+				D9F8C3FC2173BB9B00D02309 /* AddGaugeConfig.storyboard in Resources */,
+				D9F8C3EA2171382900D02309 /* GaugeConfig.storyboard in Resources */,
 				D93A2F7920859CC70059A94E /* EditThreshold.storyboard in Resources */,
 				D93A2F6B207EE7840059A94E /* ThresholdConfig.storyboard in Resources */,
 				D9B51CE320F581BA00CEA24D /* ThresholdConfigTableViewCell.xib in Resources */,
@@ -520,6 +556,7 @@
 				D93A2F7B208BBAEB0059A94E /* EditThresholdView.xib in Resources */,
 				D9CBCF5F2055F0D9002D4206 /* Home.storyboard in Resources */,
 				D9CBCF5A2055F0C6002D4206 /* LaunchScreen.storyboard in Resources */,
+				D9F8C3F42172E33C00D02309 /* GaugeConfigTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,23 +591,30 @@
 				D93A2F75208593570059A94E /* ThresholdConfigTableViewCellViewModel.swift in Sources */,
 				D99568362139E6D6007F8CDF /* Threshold.swift in Sources */,
 				D93A2F7F208BC5980059A94E /* EditThresholdViewControllerViewModel.swift in Sources */,
+				D9F8C3FA2173BB8200D02309 /* AddGaugeConfigViewController.swift in Sources */,
 				D9CBCF532055F04B002D4206 /* EngineDataCollectionViewCellViewModel.swift in Sources */,
 				D9323CA120F245E1002078B0 /* EngineDataPoint.swift in Sources */,
 				D9CBCF2C205224EE002D4206 /* BluetoothConfig.swift in Sources */,
 				D9CBCF4B2055DFC5002D4206 /* EngineDataStateManager.swift in Sources */,
 				D9B51CE620F5840800CEA24D /* RemoteDatabaseManager.swift in Sources */,
 				D9CBCF1D204CE191002D4206 /* GpsManager.swift in Sources */,
+				D9F8C3F021713C1500D02309 /* GaugeConfigViewControllerViewModel.swift in Sources */,
 				D93A2F62207EBD7F0059A94E /* SettingsTableViewCell.swift in Sources */,
 				D995683A2139EE08007F8CDF /* EditThresholdViewModel.swift in Sources */,
+				D9F8C3FE2173BC9700D02309 /* AddGaugeConfigTableViewCell.swift in Sources */,
 				D93A2F73208590BE0059A94E /* EngineDataItem.swift in Sources */,
 				D99568382139EDD2007F8CDF /* EditThresholdParameters.swift in Sources */,
 				D9B51CEB20F5884D00CEA24D /* RandomStringGenerator.swift in Sources */,
+				D9F8C3EE217139EB00D02309 /* GaugeConfigManager.swift in Sources */,
+				D9F8C3F82172EE0500D02309 /* GaugeConfigTableHeaderCell.swift in Sources */,
 				D93A2F7D208BBB920059A94E /* EditThresholdView.swift in Sources */,
 				D9CBCF572055F060002D4206 /* Data.swift in Sources */,
 				D93A2F7720859CAF0059A94E /* EditThresholdViewController.swift in Sources */,
+				D9F8C3F32172E33B00D02309 /* GaugeConfigTableViewCell.swift in Sources */,
 				D9CBCF552055F054002D4206 /* EngineDataCollectionViewCell.swift in Sources */,
 				D9B51CE820F5844800CEA24D /* Drive.swift in Sources */,
 				D98B1AAC207E9C9E005A7DB3 /* BluetoothManager.swift in Sources */,
+				D9F8C3EC2171388B00D02309 /* GaugeConfigViewController.swift in Sources */,
 				D9CBCF06204CDEA5002D4206 /* AppDelegate.swift in Sources */,
 				D99568342139E5B9007F8CDF /* ThresholdItem.swift in Sources */,
 				D99568322139E124007F8CDF /* ThresholdDataManager.swift in Sources */,
