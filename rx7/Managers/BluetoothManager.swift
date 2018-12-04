@@ -40,10 +40,12 @@ class BluetoothManager: NSObject {
         centralManager = CBCentralManager(delegate: self, queue: nil)
     }
     
-    func write(data: Data, forCharacteristic characteristic: CBCharacteristic, withResponse: Bool = false) {
-        guard let peripheral = connectedPeripheral else { return }
+    func write(data: Data, forCharacteristic characteristic: BluetoothConfig.Characteristics, withResponse: Bool = false) {
+        guard let peripheral = connectedPeripheral, let cbCharacteristic = characteristicMap[characteristic.asCBUUID] else { return }
         let writeType = withResponse ? CBCharacteristicWriteType.withResponse : CBCharacteristicWriteType.withoutResponse
-        peripheral.writeValue(data, for: characteristic, type: writeType)
+        peripheral.writeValue(data, for: cbCharacteristic, type: writeType)
+        
+        print("Attempted to write data for characteristic \(cbCharacteristic)")
     }
     
     func read(characteristic: BluetoothConfig.Characteristics, _ closure: @escaping BluetoothDataReceivedClosure) {

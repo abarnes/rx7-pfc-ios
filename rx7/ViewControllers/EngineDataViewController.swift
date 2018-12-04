@@ -21,6 +21,9 @@ class EngineDataViewController: UIViewController {
     fileprivate struct Constants {
         static let cellNibName = "EngineDataCollectionViewCell"
         static let engineDataCollectionViewCellIdentifier = "engineDataCell"
+        static let cellSpacing = 10
+        static let numberOfColumns = 2
+        static let cellHeight = 190
     }
     
     override func viewDidLoad() {
@@ -29,7 +32,12 @@ class EngineDataViewController: UIViewController {
         collectionView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellWithReuseIdentifier: Constants.engineDataCollectionViewCellIdentifier)
         
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = CGSize(width: 1,height: 1)
+            let screenWidth = UIScreen.main.bounds.size.width
+            flowLayout.estimatedItemSize = CGSize(width: ((Int(screenWidth) / Constants.numberOfColumns) - (Constants.cellSpacing * Constants.numberOfColumns)), height: Constants.cellHeight)
+            let spacing = CGFloat(Constants.cellSpacing)
+            flowLayout.minimumLineSpacing = spacing
+            flowLayout.minimumInteritemSpacing = (spacing / 2)
+            flowLayout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         }
         
         setupObservers()
@@ -50,7 +58,7 @@ class EngineDataViewController: UIViewController {
         }.dispose(in: disposeBag)
         
         BluetoothManager.singleton.state.observeNext { [weak self] (state) in
-            self?.statusLabel.text = state.rawValue
+            self?.statusLabel.text = "Status: \(state.rawValue)"
         }.dispose(in: disposeBag)
     }
     

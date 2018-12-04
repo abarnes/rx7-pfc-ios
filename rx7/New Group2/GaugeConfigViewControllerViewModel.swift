@@ -20,6 +20,8 @@ class GaugeConfigViewControllerViewModel {
     private(set) var gauges = Observable<[EngineDataItem]>([])
     private(set) var monitors = Observable<[EngineDataItem]>([])
     
+    private(set) var configHasChanged = Observable<Bool>(false)
+    
     init() {
         gaugeConfigManager.readGauges { [weak self] (gauges, monitors) in
             guard let `self` = self else { return }
@@ -105,9 +107,9 @@ class GaugeConfigViewControllerViewModel {
         return (((indexPath.section == 0) && (indexPath.row == gauges.value.count)) || ((indexPath.section == 1) && (indexPath.row == monitors.value.count)))
     }
     
-    /// Private Methods
-    
-    private func gaugeConfigChanged() {
+    func save() {
+        guard configHasChanged.value else { return }
+        
         isSaving.next(true)
         
         gaugeConfigManager.setGauges(gauges: gauges.value, monitors: monitors.value) { [weak self] (wasSuccessful) in
@@ -120,6 +122,12 @@ class GaugeConfigViewControllerViewModel {
             
             self.isSaving.next(false)
         }
+    }
+    
+    /// Private Methods
+    
+    private func gaugeConfigChanged() {
+        configHasChanged.next(true)
     }
     
     

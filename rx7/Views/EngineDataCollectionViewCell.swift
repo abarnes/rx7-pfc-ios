@@ -13,7 +13,7 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var value: UILabel!
-    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var stackView: UIStackView!
     
     private var disposeBag = DisposeBag()
     
@@ -28,8 +28,9 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        let screenWidth = UIScreen.main.bounds.size.width
-        widthConstraint.constant = screenWidth - (2 * 12)
+        
+        stackView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        
     }
     
     private func setupObservers() {
@@ -37,7 +38,7 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
         
         disposeBag.dispose()
         viewModel.value.observeNext { [weak self] value in
-            self?.value.text = value
+            // self?.value.text = value
         }.dispose(in: disposeBag)
     }
     

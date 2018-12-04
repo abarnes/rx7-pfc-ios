@@ -12,6 +12,11 @@ class GaugeConfigManager {
 
     static let singleton = GaugeConfigManager()
     
+    struct Constants {
+        static let readGaugeConfigStartingByte = UInt8(0)
+        static let setGaugeConfigStartingByte = UInt8(1)
+    }
+    
     private let bluetoothManager = BluetoothManager.singleton
     
     func readGauges(_ completionHandler: @escaping ([EngineDataItem], [EngineDataItem]) -> Void) {
@@ -21,9 +26,34 @@ class GaugeConfigManager {
     }
     
     func setGauges(gauges: [EngineDataItem], monitors: [EngineDataItem], _ completionHandler: ((Bool) -> Void)?) {
-        // save the data
+        let rawData = constructData(gauges: gauges, monitors: monitors)
         
-        completionHandler?(true)
+        bluetoothManager.write(data: rawData, forCharacteristic: BluetoothConfig.Characteristics.layoutConfig, withResponse: false)
+        
+        DispatchQueue.global().after(when: 10) {
+            completionHandler?(true)
+        }
+        
+    }
+    
+    /// MARK - Private
+    
+    private func constructData(gauges: [EngineDataItem], monitors: [EngineDataItem]) -> Data {
+        var dataArray = Data(count: 0)
+        
+        dataArray.append(contentsOf: [Constants.setGaugeConfigStartingByte])
+        
+        for gauge in gauges {
+            dataArray.append(contentsOf: [UInt8(gauge.rawValue), 1, 30])
+        }
+        
+        dataArray.append(contentsOf: [UInt8.max, UInt8.max, UInt8.max])
+        
+        for monitor in monitors {
+            dataArray.append(contentsOf: [UInt8(monitor.rawValue)])
+        }
+        
+        return dataArray
     }
     
 }

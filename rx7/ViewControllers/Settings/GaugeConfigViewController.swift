@@ -12,6 +12,8 @@ import ReactiveKit
 class GaugeConfigViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingScreenView: UIView!
+    @IBOutlet weak var saveButton: UIButton!
     
     struct Constants {
         static let cellNibName = "GaugeConfigTableViewCell"
@@ -40,12 +42,21 @@ class GaugeConfigViewController: UIViewController {
         setupObservers()
     }
     
+    override func willMove(toParent parent: UIViewController?) {
+        if (!(parent?.isEqual(self.parent) ?? false)) {
+            viewModel?.save()
+        }
+    }
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         
         tableView.setEditing(editing, animated: true)
     }
 
+    @IBAction func didPressSave(_ sender: Any) {
+        viewModel?.save()
+    }
 }
 /// MARK: - UITableViewDatasource
 
@@ -141,9 +152,22 @@ extension GaugeConfigViewController {
         
         disposeBag.dispose()
         viewModel.hasLoaded.observeNext { [weak self] _ in
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }.dispose(in: disposeBag)
         
+        viewModel.isSaving.observeNext { [weak self] (isSaving) in
+            DispatchQueue.main.async {
+                self?.loadingScreenView.isHidden = !isSaving
+            }
+        }.dispose(in: disposeBag)
+        
+        viewModel.configHasChanged.observeNext { [weak self] (hasChanged) in
+            DispatchQueue.main.async {
+                self?.saveButton.isHidden = !hasChanged
+            }
+        }.dispose(in: disposeBag)
     }
 
 }

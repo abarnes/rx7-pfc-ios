@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // TODO re-enable firebase later
         // FirebaseApp.configure()
-        
         // let _ = RemoteDatabaseManager.singleton
         
         return true

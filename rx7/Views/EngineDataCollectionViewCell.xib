@@ -13,57 +13,46 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="engineDataCell" id="Hbv-ZM-80u" customClass="EngineDataCollectionViewCell" customModule="rx7" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="219" height="152"/>
+            <rect key="frame" x="0.0" y="0.0" width="219" height="159"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                <rect key="frame" x="0.0" y="0.0" width="219" height="152"/>
+                <rect key="frame" x="0.0" y="0.0" width="219" height="159"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hm0-xY-kaX">
-                        <rect key="frame" x="0.0" y="0.0" width="219" height="152"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="XWi-0F-MUV">
+                        <rect key="frame" x="0.0" y="43" width="219" height="80"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="749" text="Water Temp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4T-LT-any">
-                                <rect key="frame" x="8" y="30" width="203" height="21.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="219" height="102.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="190º" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="302-SX-JFf">
-                                <rect key="frame" x="8" y="69.5" width="203" height="52.5"/>
+                                <rect key="frame" x="0.0" y="106.5" width="219" height="52.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="l4T-LT-any" firstAttribute="top" secondItem="hm0-xY-kaX" secondAttribute="top" constant="30" id="63r-wM-huw"/>
-                            <constraint firstAttribute="trailing" secondItem="l4T-LT-any" secondAttribute="trailing" constant="8" id="D91-HU-YOR"/>
-                            <constraint firstAttribute="bottom" secondItem="302-SX-JFf" secondAttribute="bottom" constant="30" id="c7q-az-IXt"/>
-                            <constraint firstAttribute="width" constant="219" id="e4y-mZ-nzN"/>
-                            <constraint firstItem="l4T-LT-any" firstAttribute="leading" secondItem="hm0-xY-kaX" secondAttribute="leading" constant="8" id="rgA-Xz-vRh"/>
-                            <constraint firstAttribute="trailing" secondItem="302-SX-JFf" secondAttribute="trailing" constant="8" id="t7j-F9-OEJ"/>
-                            <constraint firstItem="302-SX-JFf" firstAttribute="leading" secondItem="hm0-xY-kaX" secondAttribute="leading" constant="8" id="ukR-h5-Xlp"/>
-                            <constraint firstItem="302-SX-JFf" firstAttribute="top" secondItem="l4T-LT-any" secondAttribute="bottom" constant="18" id="w5l-A1-geR"/>
-                        </constraints>
-                    </view>
+                    </stackView>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="hm0-xY-kaX" firstAttribute="leading" secondItem="Hbv-ZM-80u" secondAttribute="leading" id="7aI-mn-UXY"/>
-                <constraint firstAttribute="trailing" secondItem="hm0-xY-kaX" secondAttribute="trailing" id="GXn-Rh-TtO"/>
-                <constraint firstAttribute="bottom" secondItem="hm0-xY-kaX" secondAttribute="bottom" id="Z10-Qd-en3"/>
-                <constraint firstItem="hm0-xY-kaX" firstAttribute="top" secondItem="Hbv-ZM-80u" secondAttribute="top" id="g7x-fm-muu"/>
+                <constraint firstAttribute="bottom" secondItem="XWi-0F-MUV" secondAttribute="bottom" id="7yN-Qs-cJk"/>
+                <constraint firstAttribute="trailing" secondItem="XWi-0F-MUV" secondAttribute="trailing" id="HJK-ak-TUX"/>
+                <constraint firstItem="XWi-0F-MUV" firstAttribute="top" secondItem="Hbv-ZM-80u" secondAttribute="top" id="JJt-cw-Wvr"/>
+                <constraint firstItem="XWi-0F-MUV" firstAttribute="leading" secondItem="Hbv-ZM-80u" secondAttribute="leading" id="g4r-4D-5jx"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="9M7-IB-BzK"/>
-            <size key="customSize" width="219" height="152"/>
+            <size key="customSize" width="219" height="159"/>
             <connections>
+                <outlet property="stackView" destination="XWi-0F-MUV" id="8Ew-u1-pDr"/>
                 <outlet property="title" destination="l4T-LT-any" id="EbL-EC-7bA"/>
                 <outlet property="value" destination="302-SX-JFf" id="OhR-sq-AZ9"/>
-                <outlet property="widthConstraint" destination="e4y-mZ-nzN" id="hml-ys-5OM"/>
             </connections>
-            <point key="canvasLocation" x="81.5" y="20"/>
+            <point key="canvasLocation" x="80.799999999999997" y="16.641679160419791"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -36,23 +36,65 @@
                                     <outlet property="delegate" destination="DxU-hZ-vFk" id="d9v-Ip-WO2"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wP7-so-jJG">
+                                <rect key="frame" x="10" y="625" width="355" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressSave:" destination="DxU-hZ-vFk" eventType="touchUpInside" id="V2Z-Up-uNH"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0AW-3V-pqc">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="b9q-Wl-tdg">
+                                        <rect key="frame" x="177.5" y="218" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saving..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gq-GT-2IO">
+                                        <rect key="frame" x="155" y="246" width="66" height="26"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="b9q-Wl-tdg" firstAttribute="top" secondItem="0AW-3V-pqc" secondAttribute="top" constant="218" id="2ME-r0-aQ2"/>
+                                    <constraint firstItem="2gq-GT-2IO" firstAttribute="centerY" secondItem="0AW-3V-pqc" secondAttribute="centerY" constant="-64.5" id="gMy-gi-oUq"/>
+                                    <constraint firstItem="b9q-Wl-tdg" firstAttribute="centerX" secondItem="0AW-3V-pqc" secondAttribute="centerX" id="hTF-fF-8dL"/>
+                                    <constraint firstItem="2gq-GT-2IO" firstAttribute="centerX" secondItem="0AW-3V-pqc" secondAttribute="centerX" id="icz-fh-7oU"/>
+                                    <constraint firstItem="2gq-GT-2IO" firstAttribute="top" secondItem="b9q-Wl-tdg" secondAttribute="bottom" constant="8" id="uhk-e2-xGN"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="C0y-0c-aPa" firstAttribute="bottom" secondItem="1c7-dV-B0O" secondAttribute="bottom" id="E6B-Lf-asv"/>
+                            <constraint firstItem="1c7-dV-B0O" firstAttribute="bottom" secondItem="0AW-3V-pqc" secondAttribute="bottom" id="EgJ-q3-deD"/>
+                            <constraint firstItem="wP7-so-jJG" firstAttribute="leading" secondItem="1c7-dV-B0O" secondAttribute="leading" constant="10" id="KLo-ze-e96"/>
+                            <constraint firstItem="1c7-dV-B0O" firstAttribute="bottom" secondItem="wP7-so-jJG" secondAttribute="bottom" constant="12" id="L8z-C1-sJC"/>
+                            <constraint firstItem="wP7-so-jJG" firstAttribute="centerX" secondItem="f4f-Ns-KjV" secondAttribute="centerX" id="LZu-ZZ-isL"/>
                             <constraint firstItem="C0y-0c-aPa" firstAttribute="trailing" secondItem="1c7-dV-B0O" secondAttribute="trailing" id="NCg-ao-p0u"/>
+                            <constraint firstItem="0AW-3V-pqc" firstAttribute="top" secondItem="1c7-dV-B0O" secondAttribute="top" id="ROf-JY-Uwn"/>
+                            <constraint firstItem="1c7-dV-B0O" firstAttribute="trailing" secondItem="wP7-so-jJG" secondAttribute="trailing" constant="10" id="XG6-se-NL6"/>
                             <constraint firstItem="C0y-0c-aPa" firstAttribute="top" secondItem="1c7-dV-B0O" secondAttribute="top" id="g2r-1G-Yj6"/>
                             <constraint firstItem="C0y-0c-aPa" firstAttribute="leading" secondItem="1c7-dV-B0O" secondAttribute="leading" id="kZH-qF-5ga"/>
+                            <constraint firstItem="0AW-3V-pqc" firstAttribute="leading" secondItem="1c7-dV-B0O" secondAttribute="leading" id="t0m-cz-6tz"/>
+                            <constraint firstItem="0AW-3V-pqc" firstAttribute="trailing" secondItem="1c7-dV-B0O" secondAttribute="trailing" id="wZ1-aC-MLK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1c7-dV-B0O"/>
                     </view>
                     <connections>
+                        <outlet property="loadingScreenView" destination="0AW-3V-pqc" id="NgU-bh-oig"/>
+                        <outlet property="saveButton" destination="wP7-so-jJG" id="eBh-Nj-hQZ"/>
                         <outlet property="tableView" destination="C0y-0c-aPa" id="pSA-o2-UrO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJa-jD-522" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="518.59070464767615"/>
+            <point key="canvasLocation" x="32.799999999999997" y="517.6911544227886"/>
         </scene>
     </scenes>
 </document>
