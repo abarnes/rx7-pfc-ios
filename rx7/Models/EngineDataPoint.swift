@@ -228,4 +228,101 @@ struct EngineDataPoint {
         ]
     }
     
+    subscript(key: EngineDataItem) -> Any? {
+        switch key {
+        case .rpm:
+            return self.rpm
+        case .boost:
+            return self.boost
+        case .waterTemp:
+            return self.waterTemp
+        case .knock:
+            return self.knock
+        case .injectorDuty:
+            return self.injectorDuty
+        case .leadingIgnition:
+            return self.leadingIgnition
+        case .trailingIgnition:
+            return self.trailingIgnition
+        case .speed:
+            return self.speed
+        case .airTemp:
+            return self.airTemp
+        case .batteryVoltage:
+            return self.batteryVoltage
+        case .intakePressure:
+            return self.intakePressure
+        case .mapSensorVoltage:
+            return self.mapSensorVoltage
+        case .tpsVoltage:
+            return self.tpsVoltage
+        case .primaryInjectorPulse:
+            return self.primaryInjectorPulse
+        case .fuelCorrection:
+            return self.fuelCorrection
+        case .fuelTemp:
+            return self.fuelTemp
+        case .mopPosition:
+            return self.mopPosition
+        case .boostTP:
+            return self.boostTP
+        case .boostWG:
+            return self.boostWG
+        case .intakeTemp:
+            return self.intakeTemp
+        case .iscvDuty:
+            return self.iscvDuty
+        case .o2Voltage:
+            return self.o2Voltage
+        case .secondaryInjectorPulse:
+            return self.secondaryInjectorPulse
+        case .tpsFullRangeVoltage:
+            return self.tpsFullRangeVoltage
+        case .tpsNarrowRangeVoltage:
+            return self.tpsNarrowRangeVoltage
+        case .mopPositionSensorVoltage:
+            return self.mopPositionSensorVoltage
+        case .waterTempSensorVoltage:
+            return self.waterTempSensorVoltage
+        case .intakeAirTempSensorVoltage:
+            return self.intakeAirTempSensorVoltage
+        case .fuelTempSensorVoltage:
+            return self.fuelTempSensorVoltage
+        case .o2SensorVoltage:
+            return self.o2SensorVoltage
+        case .starterSwitch:
+            return self.starterSwitch
+        case .airConditioningSwitch:
+            return self.airConditioningSwitch
+        case .powerSteeringPressureSwitch:
+            return self.powerSteeringPressureSwitch
+        case .neutralSwitch:
+            return self.neutralSwitch
+        case .clutchSwitch:
+            return self.clutchSwitch
+        case .stopSwitch:
+            return self.stopSwitch
+        case .catalyzerThermoSensorSwitch:
+            return self.catalyzerThermoSensorSwitch
+        case .electricalLoadSwitch:
+            return self.electricalLoadSwitch
+        case .exhaustTempWarningIndicator:
+            return self.exhaustTempWarningIndicator
+        case .fuelPumpOperation:
+            return self.fuelPumpOperation
+        case .fuelPumpControl:
+            return self.fuelCorrection
+        case .airPumpRelay:
+            return self.airPumpRelay
+        case .portAirControl:
+            return self.portAirControl
+        case .chargeControl:
+            return self.chargeControl
+        case .turboControl:
+            return self.turboControl
+        case .pressureRegulatorControl:
+            return self.pressureRegulatorControl
+        }
+    }
+    
 }

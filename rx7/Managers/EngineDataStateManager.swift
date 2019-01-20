@@ -19,6 +19,12 @@ class EngineDataStateManager {
         subscribeToEngineData()
     }
     
+    func getCurrentDataPointByKey(_ key: EngineDataItem) -> Any? {
+        
+        
+        return nil
+    }
+    
     private func subscribeToEngineData() {
         BluetoothManager.singleton.subscribe(to: BluetoothConfig.Characteristics.engineData) { [weak self] (data) in
             guard let `self` = self, let data = data else { return }

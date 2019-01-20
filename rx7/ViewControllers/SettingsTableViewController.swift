@@ -96,7 +96,7 @@ extension SettingsTableViewController {
         case .requestIntervals:
             print("requestIntervals")
         case .shutdown:
-            print("shutdown")
+            presentShutdownDialog()
         }
     }
     
@@ -144,5 +144,19 @@ extension SettingsTableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    private func presentShutdownDialog() {
+        let refreshAlert = UIAlertController(title: "Shutdown", message: "Power off the ECM interface?", preferredStyle: UIAlertController.Style.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Shutdown", style: .default, handler: { (action: UIAlertAction!) in
+            BluetoothManager.singleton.shutdown()
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            // no-op
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
 
 }
