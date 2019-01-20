@@ -40,10 +40,11 @@ class BluetoothManager: NSObject {
         centralManager = CBCentralManager(delegate: self, queue: nil)
     }
     
-    func write(data: Data, forCharacteristic characteristic: BluetoothConfig.Characteristics, withResponse: Bool = false) {
+    func write(data: Data?, forCharacteristic characteristic: BluetoothConfig.Characteristics, withResponse: Bool = false) {
         guard let peripheral = connectedPeripheral, let cbCharacteristic = characteristicMap[characteristic.asCBUUID] else { return }
         let writeType = withResponse ? CBCharacteristicWriteType.withResponse : CBCharacteristicWriteType.withoutResponse
-        peripheral.writeValue(data, for: cbCharacteristic, type: writeType)
+        let writtenData = (data == nil) ? Data() : data!
+        peripheral.writeValue(writtenData, for: cbCharacteristic, type: writeType)
         
         print("Attempted to write data for characteristic \(cbCharacteristic)")
     }
@@ -64,6 +65,10 @@ class BluetoothManager: NSObject {
         } else {
             listeners[characteristic] = [closure]
         }
+    }
+    
+    func shutdown() {
+        write(data: nil, forCharacteristic: BluetoothConfig.Characteristics.shutdown)
     }
     
 }
@@ -89,7 +94,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral,
                         advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        print("BluteoothManager: peripheral found: \(peripheral)")
+        print("BluetoothManager: peripheral found: \(peripheral)")
         
         state.next(.connecting)
         

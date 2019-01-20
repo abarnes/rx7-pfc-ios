@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
         
         EngineDataStateManager.singleton.didBeginDrive.observeNext { [weak self] (didBegin) in
             guard didBegin else { return }
-            self?.driveCodeLabel.text = RemoteDatabaseManager.singleton.drive?.code
+            // self?.driveCodeLabel.text = RemoteDatabaseManager.singleton.drive?.code TODO re-enable
         }.dispose(in: disposeBag)
     }
 

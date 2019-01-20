@@ -38,7 +38,8 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
         
         disposeBag.dispose()
         viewModel.value.observeNext { [weak self] value in
-            // self?.value.text = value
+            guard let `self` = self else { return }
+            self.value.text = "\(value)"
         }.dispose(in: disposeBag)
     }
     

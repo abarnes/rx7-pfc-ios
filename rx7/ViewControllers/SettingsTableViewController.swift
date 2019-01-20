@@ -12,6 +12,7 @@ private enum SettingsSections: String {
     case gauges = "Gauges"
     case thresholds = "Thresholds"
     case requestIntervals = "Intervals"
+    case shutdown = "Shutdown"
 }
 
 class SettingsTableViewController: UITableViewController {
@@ -26,7 +27,7 @@ class SettingsTableViewController: UITableViewController {
         
     }
     
-    fileprivate let settingsLinkArray: [SettingsSections] = [.gauges, .thresholds, .requestIntervals]
+    fileprivate let settingsLinkArray: [SettingsSections] = [.gauges, .thresholds, .requestIntervals, .shutdown]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +95,8 @@ extension SettingsTableViewController {
             self.navigationController?.pushViewController(controller, animated: true)
         case .requestIntervals:
             print("requestIntervals")
+        case .shutdown:
+            print("shutdown")
         }
     }
     
