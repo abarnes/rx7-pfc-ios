@@ -31,14 +31,12 @@ class EngineDataViewController: UIViewController {
         
         collectionView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellWithReuseIdentifier: Constants.engineDataCollectionViewCellIdentifier)
         
+        collectionView.delegate = self
+        
+        /*
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let screenWidth = UIScreen.main.bounds.size.width
-            flowLayout.estimatedItemSize = CGSize(width: ((Int(screenWidth) / Constants.numberOfColumns) - (Constants.cellSpacing * Constants.numberOfColumns)), height: Constants.cellHeight)
-            let spacing = CGFloat(Constants.cellSpacing)
-            flowLayout.minimumLineSpacing = spacing
-            flowLayout.minimumInteritemSpacing = (spacing / 2)
-            flowLayout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        }
+            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }*/
         
         setupObservers()
     }
@@ -101,6 +99,21 @@ extension EngineDataViewController: UICollectionViewDataSource {
         }
         
         return cell
+    }
+    
+}
+
+extension EngineDataViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellsAcross: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 3 : 2
+        var widthRemainingForCellContent = collectionView.bounds.width
+        if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
+            let borderSize: CGFloat = flowLayout.sectionInset.left + flowLayout.sectionInset.right
+            widthRemainingForCellContent -= borderSize + ((cellsAcross - 1) * flowLayout.minimumInteritemSpacing)
+        }
+        let cellWidth = widthRemainingForCellContent / cellsAcross
+        return CGSize(width: cellWidth, height: cellWidth)
     }
     
 }

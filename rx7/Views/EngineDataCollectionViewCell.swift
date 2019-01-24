@@ -26,12 +26,8 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        
-        stackView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
-        
     }
+
     
     private func setupObservers() {
         guard let viewModel = viewModel else { return }
@@ -39,7 +35,7 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
         disposeBag.dispose()
         viewModel.value.observeNext { [weak self] value in
             guard let `self` = self else { return }
-            self.value.text = "\(value)"
+            // self.value.text = "\(value)"
         }.dispose(in: disposeBag)
     }
     
