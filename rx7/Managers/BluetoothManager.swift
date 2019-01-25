@@ -32,12 +32,23 @@ class BluetoothManager: NSObject {
     fileprivate var characteristicMap = [CBUUID: CBCharacteristic]()
     fileprivate var listeners = [BluetoothConfig.Characteristics: [BluetoothDataReceivedClosure]]()
     fileprivate var readRequestCallbacks = [BluetoothConfig.Characteristics: [BluetoothDataReceivedClosure]]()
+    fileprivate var writeWithResponseRequestCallbacks = [BluetoothConfig.Characteristics: [BluetoothDataReceivedClosure]]()
     private(set) var state = Observable<BluetoothState>(.unknown)
     
     override init() {
         super.init()
         
         centralManager = CBCentralManager(delegate: self, queue: nil)
+    }
+    
+    func write(data: Data?, forCharacteristic characteristic: BluetoothConfig.Characteristics, _ responseHandler: @escaping BluetoothDataReceivedClosure) {
+        guard let _ = characteristicMap[characteristic.asCBUUID] else { return }
+        if (writeWithResponseRequestCallbacks[characteristic] == nil) {
+            writeWithResponseRequestCallbacks[characteristic] = [responseHandler]
+        } else {
+            writeWithResponseRequestCallbacks[characteristic]?.append(responseHandler)
+        }
+        write(data: data, forCharacteristic: characteristic, withResponse: true)
     }
     
     func write(data: Data?, forCharacteristic characteristic: BluetoothConfig.Characteristics, withResponse: Bool = false) {
@@ -77,17 +88,17 @@ extension BluetoothManager: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
         case .unknown:
-            print("BluteoothManager: central.state is .unknown")
+            print("BluetoothManager: central.state is .unknown")
         case .resetting:
-            print(" BluteoothManager:central.state is .resetting")
+            print(" BluetoothManager:central.state is .resetting")
         case .unsupported:
-            print(" BluteoothManager:central.state is .unsupported")
+            print(" BluetoothManager:central.state is .unsupported")
         case .unauthorized:
-            print("BluteoothManager: central.state is .unauthorized")
+            print("BluetoothManager: central.state is .unauthorized")
         case .poweredOff:
-            print("BluteoothManager: central.state is .poweredOff")
+            print("BluetoothManager: central.state is .poweredOff")
         case .poweredOn:
-            print("BluteoothManager: central.state is .poweredOn")
+            print("BluetoothManager: central.state is .poweredOn")
             centralManager.scanForPeripherals(withServices: [BluetoothConfig.Services.service])
         }
     }
@@ -108,7 +119,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        print("BlueteoothManager: Connected!")
+        print("BluetoothManager: Connected!")
         connectedPeripheral?.discoverServices([BluetoothConfig.Services.service])
     }
 }
@@ -118,7 +129,7 @@ extension BluetoothManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard let services = peripheral.services else { return }
         for service in services {
-            print("BluteoothManager: didDiscoverService \(service)")
+            print("BluetoothManager: didDiscoverService \(service)")
             peripheral.discoverCharacteristics(nil, for: service)
         }
     }
@@ -129,7 +140,7 @@ extension BluetoothManager: CBPeripheralDelegate {
         state.next(.connected)
         
         for characteristic in characteristics {
-            print("BlueteoothManager: didDiscoverCharacteristicsFor \(characteristic)")
+            print("BluetoothManager: didDiscoverCharacteristicsFor \(characteristic)")
 
             characteristicMap[characteristic.uuid] = characteristic
             
@@ -151,7 +162,7 @@ extension BluetoothManager: CBPeripheralDelegate {
         case BluetoothConfig.Characteristics.thresholdConfig.asCBUUID:
             handleUpdate(for: BluetoothConfig.Characteristics.thresholdConfig, withValue: characteristic.value)
         default:
-            print("Unhandled Characteristic UUID: \(characteristic.uuid)")
+            print("BluetoothManager: Unhandled value update for Bluetooth Characteristic with UUID: \(characteristic.uuid)")
         }
     }
     
@@ -168,6 +179,13 @@ extension BluetoothManager: CBPeripheralDelegate {
                 callback(value)
             }
             readRequestCallbacks[characteristic] = nil
+        }
+        
+        if let writeCallbacks = writeWithResponseRequestCallbacks[characteristic] {
+            if (writeCallbacks.count > 0) {
+                writeCallbacks[0](value)
+                writeWithResponseRequestCallbacks[characteristic]!.removeFirst(1)
+            }
         }
     }
     
