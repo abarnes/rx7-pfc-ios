@@ -61,7 +61,7 @@ class BluetoothManager: NSObject {
     }
     
     func read(characteristic: BluetoothConfig.Characteristics, _ closure: @escaping BluetoothDataReceivedClosure) {
-        guard let readingCharacteristic = characteristicMap[characteristic.asCBUUID] else { return }
+        guard let readingCharacteristic = characteristicMap[characteristic.asCBUUID], let _ = connectedPeripheral else { return }
         if (readRequestCallbacks[characteristic] == nil) {
             readRequestCallbacks[characteristic] = [closure]
         } else {
@@ -161,6 +161,8 @@ extension BluetoothManager: CBPeripheralDelegate {
             handleUpdate(for: BluetoothConfig.Characteristics.gpsReceiver, withValue: characteristic.value)
         case BluetoothConfig.Characteristics.thresholdConfig.asCBUUID:
             handleUpdate(for: BluetoothConfig.Characteristics.thresholdConfig, withValue: characteristic.value)
+        case BluetoothConfig.Characteristics.layoutConfig.asCBUUID:
+            handleUpdate(for: BluetoothConfig.Characteristics.layoutConfig, withValue: characteristic.value)
         default:
             print("BluetoothManager: Unhandled value update for Bluetooth Characteristic with UUID: \(characteristic.uuid)")
         }

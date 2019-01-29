@@ -29,7 +29,7 @@
 		D966096F20F453D200A4C54E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D966096D20F453A100A4C54E /* CoreTelephony.framework */; };
 		D966097120F4550E00A4C54E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D966097020F4550D00A4C54E /* StoreKit.framework */; };
 		D98B1AAC207E9C9E005A7DB3 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98B1AAB207E9C9E005A7DB3 /* BluetoothManager.swift */; };
-		D99568322139E124007F8CDF /* ThresholdDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99568312139E124007F8CDF /* ThresholdDataManager.swift */; };
+		D99568322139E124007F8CDF /* ThresholdConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99568312139E124007F8CDF /* ThresholdConfigManager.swift */; };
 		D99568342139E5B9007F8CDF /* ThresholdItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99568332139E5B9007F8CDF /* ThresholdItem.swift */; };
 		D99568362139E6D6007F8CDF /* Threshold.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99568352139E6D6007F8CDF /* Threshold.swift */; };
 		D99568382139EDD2007F8CDF /* EditThresholdParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99568372139EDD2007F8CDF /* EditThresholdParameters.swift */; };
@@ -83,7 +83,7 @@
 		D9CBCF5F2055F0D9002D4206 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CBCF5D2055F0D9002D4206 /* Home.storyboard */; };
 		D9F8C3EA2171382900D02309 /* GaugeConfig.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F8C3E92171382900D02309 /* GaugeConfig.storyboard */; };
 		D9F8C3EC2171388B00D02309 /* GaugeConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F8C3EB2171388B00D02309 /* GaugeConfigViewController.swift */; };
-		D9F8C3EE217139EB00D02309 /* GaugeConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F8C3ED217139EB00D02309 /* GaugeConfigManager.swift */; };
+		D9F8C3EE217139EB00D02309 /* GaugeLayoutConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F8C3ED217139EB00D02309 /* GaugeLayoutConfigManager.swift */; };
 		D9F8C3F021713C1500D02309 /* GaugeConfigViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F8C3EF21713C1500D02309 /* GaugeConfigViewControllerViewModel.swift */; };
 		D9F8C3F32172E33B00D02309 /* GaugeConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F8C3F12172E33B00D02309 /* GaugeConfigTableViewCell.swift */; };
 		D9F8C3F42172E33C00D02309 /* GaugeConfigTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9F8C3F22172E33B00D02309 /* GaugeConfigTableViewCell.xib */; };
@@ -159,7 +159,7 @@
 		D966096D20F453A100A4C54E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		D966097020F4550D00A4C54E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D98B1AAB207E9C9E005A7DB3 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
-		D99568312139E124007F8CDF /* ThresholdDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThresholdDataManager.swift; path = rx7/Managers/ThresholdDataManager.swift; sourceTree = SOURCE_ROOT; };
+		D99568312139E124007F8CDF /* ThresholdConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThresholdConfigManager.swift; path = rx7/Managers/ThresholdConfigManager.swift; sourceTree = SOURCE_ROOT; };
 		D99568332139E5B9007F8CDF /* ThresholdItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThresholdItem.swift; path = rx7/Models/ThresholdItem.swift; sourceTree = SOURCE_ROOT; };
 		D99568352139E6D6007F8CDF /* Threshold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Threshold.swift; sourceTree = "<group>"; };
 		D99568372139EDD2007F8CDF /* EditThresholdParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditThresholdParameters.swift; path = rx7/Models/EditThresholdParameters.swift; sourceTree = SOURCE_ROOT; };
@@ -194,7 +194,7 @@
 		D9CBCF5D2055F0D9002D4206 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		D9F8C3E92171382900D02309 /* GaugeConfig.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GaugeConfig.storyboard; sourceTree = "<group>"; };
 		D9F8C3EB2171388B00D02309 /* GaugeConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeConfigViewController.swift; sourceTree = "<group>"; };
-		D9F8C3ED217139EB00D02309 /* GaugeConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeConfigManager.swift; sourceTree = "<group>"; };
+		D9F8C3ED217139EB00D02309 /* GaugeLayoutConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeLayoutConfigManager.swift; sourceTree = "<group>"; };
 		D9F8C3EF21713C1500D02309 /* GaugeConfigViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GaugeConfigViewControllerViewModel.swift; path = "rx7/New Group2/GaugeConfigViewControllerViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		D9F8C3F12172E33B00D02309 /* GaugeConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GaugeConfigTableViewCell.swift; path = rx7/Views/Settings/GaugeConfigTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D9F8C3F22172E33B00D02309 /* GaugeConfigTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GaugeConfigTableViewCell.xib; path = rx7/Views/Settings/GaugeConfigTableViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -395,10 +395,10 @@
 				D9CBCF2B205224EE002D4206 /* BluetoothConfig.swift */,
 				D98B1AAB207E9C9E005A7DB3 /* BluetoothManager.swift */,
 				D9CBCF4A2055DFC5002D4206 /* EngineDataStateManager.swift */,
+				D9F8C3ED217139EB00D02309 /* GaugeLayoutConfigManager.swift */,
 				D9CBCF1C204CE191002D4206 /* GpsManager.swift */,
 				D9B51CE520F5840800CEA24D /* RemoteDatabaseManager.swift */,
-				D99568312139E124007F8CDF /* ThresholdDataManager.swift */,
-				D9F8C3ED217139EB00D02309 /* GaugeConfigManager.swift */,
+				D99568312139E124007F8CDF /* ThresholdConfigManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -605,7 +605,7 @@
 				D93A2F73208590BE0059A94E /* EngineDataItem.swift in Sources */,
 				D99568382139EDD2007F8CDF /* EditThresholdParameters.swift in Sources */,
 				D9B51CEB20F5884D00CEA24D /* RandomStringGenerator.swift in Sources */,
-				D9F8C3EE217139EB00D02309 /* GaugeConfigManager.swift in Sources */,
+				D9F8C3EE217139EB00D02309 /* GaugeLayoutConfigManager.swift in Sources */,
 				D9F8C3F82172EE0500D02309 /* GaugeConfigTableHeaderCell.swift in Sources */,
 				D93A2F7D208BBB920059A94E /* EditThresholdView.swift in Sources */,
 				D9CBCF572055F060002D4206 /* Data.swift in Sources */,
@@ -617,7 +617,7 @@
 				D9F8C3EC2171388B00D02309 /* GaugeConfigViewController.swift in Sources */,
 				D9CBCF06204CDEA5002D4206 /* AppDelegate.swift in Sources */,
 				D99568342139E5B9007F8CDF /* ThresholdItem.swift in Sources */,
-				D99568322139E124007F8CDF /* ThresholdDataManager.swift in Sources */,
+				D99568322139E124007F8CDF /* ThresholdConfigManager.swift in Sources */,
 				D9CBCF08204CDEA5002D4206 /* HomeViewController.swift in Sources */,
 				D9BCA02D207C430C003559E9 /* LiveDataUploadService.swift in Sources */,
 			);

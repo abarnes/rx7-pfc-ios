@@ -92,7 +92,7 @@ extension ThresholdConfigViewController {
             let storyboard = UIStoryboard(name: Constants.editThresholdStoryboardFileName, bundle: nil)
             guard let controller = storyboard.instantiateViewController(withIdentifier: Constants.editThresholdStoryboardId) as? EditThresholdViewController else { return }
             
-            ThresholdDataManager.singleton.getThreshold(for: dataItem) { (threshold) in
+            ThresholdConfigManager.singleton.getThreshold(for: dataItem) { (threshold) in
                 guard let threshold = threshold else {
                     // TODO show an error
                     return

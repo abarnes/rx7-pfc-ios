@@ -8,9 +8,9 @@
 
 import Foundation
 
-class ThresholdDataManager {
+class ThresholdConfigManager {
     
-    static let singleton = ThresholdDataManager()
+    static let singleton = ThresholdConfigManager()
     
     private var hasFetchedData = false
     private var itemToGetAfterFetch: EngineDataItem?

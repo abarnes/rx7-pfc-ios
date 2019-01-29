@@ -22,7 +22,7 @@ struct BluetoothConfig {
         case engineData = "f3f94f62-234e-11e8-b467-0ed5f89f718b"
         case gpsReceiver = "ab913146-2988-11e8-b467-0ed5f89f718b"
         case thresholdConfig = "e87a9de0-2fda-47ec-bc60-87ff31c9777f"
-        case layoutConfig = "f3floi62-f54e-20e8-b467-0ed5f8hs718b"
+        case layoutConfig = "94667c9c-6888-41a6-9401-3655ebbfaf63"
         case shutdown = "382cccf9-9fdc-4ae0-8fc1-4570eabc3107"
         
         var asCBUUID: CBUUID {

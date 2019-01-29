@@ -11,7 +11,7 @@ import Bond
 
 class GaugeConfigViewControllerViewModel {
     
-    private let gaugeConfigManager = GaugeConfigManager.singleton
+    private let gaugeConfigManager = GaugeLayoutConfigManager.singleton
     
     private(set) var hasLoaded = Observable<Bool>(false)
     private(set) var isSaving = Observable<Bool>(false)
