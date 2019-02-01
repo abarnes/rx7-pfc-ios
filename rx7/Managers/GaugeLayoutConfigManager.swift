@@ -56,6 +56,9 @@ class GaugeLayoutConfigManager {
     private func parseResponse(withData data: Data) {
         guard data.count > 2 else { return }
         
+        self.gauges.removeAll()
+        self.monitors.removeAll()
+        
         var byteIndex = 2
         var separatorCounter = 0
         var isInMonitorSection = false
@@ -96,12 +99,14 @@ class GaugeLayoutConfigManager {
         dataArray.append(UInt8(0))
         
         for gauge in gauges {
+            print(gauge.rawValue)
             dataArray.append(contentsOf: [UInt8(gauge.rawValue), 1, 30]) // TODO update isGraphEnabled and graphTime
         }
         
         dataArray.append(contentsOf: [UInt8.max, UInt8.max, UInt8.max])
         
         for monitor in monitors {
+            print(monitor.rawValue)
             dataArray.append(contentsOf: [UInt8(monitor.rawValue)])
         }
 
