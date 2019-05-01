@@ -18,8 +18,8 @@ class ThresholdConfigTableViewCell: UITableViewCell {
         didSet {
             guard let viewModel = viewModel else { return }
             title.text = viewModel.title
-            warningLabel.text = viewModel.warningValue == nil ? "No Warning" : "\(viewModel.warningValue!)"
-            errorLabel.text = viewModel.errorValue == nil ? "No Error" : "\(viewModel.errorValue!)"
+            warningLabel.text = viewModel.warningValue
+            errorLabel.text = viewModel.criticalValue
         }
     }
     

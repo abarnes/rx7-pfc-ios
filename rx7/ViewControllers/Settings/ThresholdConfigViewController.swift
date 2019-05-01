@@ -26,7 +26,7 @@ class ThresholdConfigViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         BluetoothManager.singleton.read(characteristic: BluetoothConfig.Characteristics.thresholdConfig) { (data) in
-            print("it's data \(data))")
+            // no-op
         }
     }
 

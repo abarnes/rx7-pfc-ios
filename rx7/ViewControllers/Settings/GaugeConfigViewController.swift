@@ -78,6 +78,7 @@ extension GaugeConfigViewController: UITableViewDataSource {
 
         if let item = viewModel?.getItem(withIndexPath: indexPath) {
             cell.setTitle(item.title)
+            cell.setIsAddButton(false)
         } else {
             cell.setIsAddButton(true)
         }

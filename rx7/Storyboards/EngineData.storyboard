@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9NC-i4-X2i">
-                                <rect key="frame" x="0.0" y="104" width="375" height="674"/>
+                                <rect key="frame" x="12" y="104" width="351" height="674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AKr-Wp-FYw">
                                     <size key="itemSize" width="50" height="50"/>
@@ -68,13 +68,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="USi-jE-lgG" firstAttribute="top" secondItem="z7q-1f-BjD" secondAttribute="top" id="21h-Qk-8ir"/>
-                            <constraint firstItem="z7q-1f-BjD" firstAttribute="trailing" secondItem="9NC-i4-X2i" secondAttribute="trailing" id="98A-lb-4Ep"/>
+                            <constraint firstItem="z7q-1f-BjD" firstAttribute="trailing" secondItem="9NC-i4-X2i" secondAttribute="trailing" constant="12" id="98A-lb-4Ep"/>
                             <constraint firstItem="USi-jE-lgG" firstAttribute="leading" secondItem="z7q-1f-BjD" secondAttribute="leading" constant="16" id="U4S-Lq-QRf"/>
                             <constraint firstItem="z7q-1f-BjD" firstAttribute="trailing" secondItem="j2h-pL-9IR" secondAttribute="trailing" constant="16" id="aik-IU-QvI"/>
                             <constraint firstItem="j2h-pL-9IR" firstAttribute="top" secondItem="z7q-1f-BjD" secondAttribute="top" id="bBp-2P-Rad"/>
                             <constraint firstItem="z7q-1f-BjD" firstAttribute="bottom" secondItem="9NC-i4-X2i" secondAttribute="bottom" id="gjT-Td-NRD"/>
                             <constraint firstItem="9NC-i4-X2i" firstAttribute="top" secondItem="z7q-1f-BjD" secondAttribute="top" constant="60" id="oab-vF-Nod"/>
-                            <constraint firstItem="9NC-i4-X2i" firstAttribute="leading" secondItem="z7q-1f-BjD" secondAttribute="leading" id="puz-vg-DWa"/>
+                            <constraint firstItem="9NC-i4-X2i" firstAttribute="leading" secondItem="z7q-1f-BjD" secondAttribute="leading" constant="12" id="puz-vg-DWa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="z7q-1f-BjD"/>
                     </view>

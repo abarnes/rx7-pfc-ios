@@ -15,6 +15,7 @@ class GaugeConfigTableViewCell: UITableViewCell {
     struct Constants {
         static let addText = " Add item +"
         static let addColor = UIColor.init(red: 100.0/255.0, green: 100.0/255.0, blue: 100.0/255.0, alpha: 1.0)
+        static let standardColor = UIColor.black
     }
     
     override func awakeFromNib() {
@@ -33,10 +34,12 @@ class GaugeConfigTableViewCell: UITableViewCell {
     }
     
     func setIsAddButton(_ isAddButton: Bool) {
-        guard isAddButton else { return }
-        
-        gaugeName.text = Constants.addText
-        gaugeName.textColor = Constants.addColor
+        if (isAddButton) {
+            gaugeName.text = Constants.addText
+            gaugeName.textColor = Constants.addColor
+        } else {
+            gaugeName.textColor = Constants.standardColor
+        }
     }
     
 }

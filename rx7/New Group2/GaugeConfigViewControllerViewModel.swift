@@ -120,6 +120,7 @@ class GaugeConfigViewControllerViewModel {
                 self.saveError.next(nil)
             }
             
+            self.configHasChanged.next(false)
             self.isSaving.next(false)
         }
     }

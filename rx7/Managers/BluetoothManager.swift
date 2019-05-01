@@ -57,11 +57,17 @@ class BluetoothManager: NSObject {
         let writtenData = (data == nil) ? Data() : data!
         peripheral.writeValue(writtenData, for: cbCharacteristic, type: writeType)
         
-        print("Attempted to write data for characteristic \(cbCharacteristic)")
+        print("Attempting to write data for characteristic \(cbCharacteristic) with response: \(withResponse)")
     }
     
     func read(characteristic: BluetoothConfig.Characteristics, _ closure: @escaping BluetoothDataReceivedClosure) {
         guard let readingCharacteristic = characteristicMap[characteristic.asCBUUID], let _ = connectedPeripheral else { return }
+        
+        if let value = readingCharacteristic.value, (readingCharacteristic.properties.contains(.notify)) {
+            closure(value)
+            return
+        }
+        
         if (readRequestCallbacks[characteristic] == nil) {
             readRequestCallbacks[characteristic] = [closure]
         } else {
@@ -151,7 +157,14 @@ extension BluetoothManager: CBPeripheralDelegate {
         }
     }
     
+    
+    
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        if let error = error {
+            print("BluetoothManager didUpdateValueFor error: \(error)")
+            return
+        }
+        
         switch characteristic.uuid {
         case BluetoothConfig.Characteristics.deviceLoad.asCBUUID:
             handleUpdate(for: BluetoothConfig.Characteristics.deviceLoad, withValue: characteristic.value)
@@ -168,6 +181,23 @@ extension BluetoothManager: CBPeripheralDelegate {
         }
     }
     
+    func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
+        print("BluetoothManager: didUpdateNotificationStateFor")
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
+        print("BluetoothManager: didWriteValueFor \(characteristic)")
+        
+        guard let mappedCharacteristic = BluetoothConfig.getCharacteristicByUUID("\(characteristic.uuid)") else { return }
+        
+        if let writeCallbacks = writeWithResponseRequestCallbacks[mappedCharacteristic] {
+            if (writeCallbacks.count > 0) {
+                writeCallbacks[0](characteristic.value)
+                writeWithResponseRequestCallbacks[mappedCharacteristic]!.removeFirst(1)
+            }
+        }
+    }
+    
     private func handleUpdate(for characteristic: BluetoothConfig.Characteristics, withValue value: Data?) {
         print("BluetoothManager: handling update for characteristic \(characteristic)")
         if let notifyCallbacks = listeners[characteristic] {
@@ -181,13 +211,6 @@ extension BluetoothManager: CBPeripheralDelegate {
                 callback(value)
             }
             readRequestCallbacks[characteristic] = nil
-        }
-        
-        if let writeCallbacks = writeWithResponseRequestCallbacks[characteristic] {
-            if (writeCallbacks.count > 0) {
-                writeCallbacks[0](value)
-                writeWithResponseRequestCallbacks[characteristic]!.removeFirst(1)
-            }
         }
     }
     

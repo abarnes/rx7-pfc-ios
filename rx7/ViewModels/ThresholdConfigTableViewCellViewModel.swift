@@ -11,13 +11,23 @@ import Foundation
 class ThresholdConfigTableViewCellViewModel {
     
     private(set) var title: String
-    private(set) var warningValue: Double?
-    private(set) var errorValue: Double?
+    private(set) var warningValue = "No warning"
+    private(set) var criticalValue = "No critical"
     
     init(dataItem: EngineDataItem) {
         self.title = dataItem.title
         
-        // TODO - hook up actual threshold config code
+        ThresholdConfigManager.singleton.getThreshold(for: dataItem) { [weak self] (threshold) in
+            guard let `self` = self, let threshold = threshold else { return }
+            
+            if (threshold.warning.enabled) {
+                self.warningValue = "Warn \(threshold.warning.greaterThan ? ">" : "<")\(threshold.warning.value)"
+            }
+            
+            if (threshold.critical.enabled) {
+                self.criticalValue = "Critical \(threshold.critical.greaterThan ? ">" : "<")\(threshold.critical.value)"
+            }
+        }
         
     }
     

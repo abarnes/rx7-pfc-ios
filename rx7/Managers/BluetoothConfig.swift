@@ -28,7 +28,13 @@ struct BluetoothConfig {
         var asCBUUID: CBUUID {
             return CBUUID(string: self.rawValue)
         }
+    }
+    
+    static func getCharacteristicByUUID(_ uuid: String) -> Characteristics? {
+        guard let value = Characteristics(rawValue: uuid) else {
+            return nil
+        }
         
-        
+        return value
     }
 }

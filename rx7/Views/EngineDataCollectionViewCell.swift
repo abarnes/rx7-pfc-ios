@@ -26,6 +26,7 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupBorders()
     }
 
     
@@ -37,6 +38,12 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
             guard let `self` = self else { return }
             self.value.text = "\(value)"
         }.dispose(in: disposeBag)
+    }
+    
+    private func setupBorders() {
+        let gray: UIColor = .gray
+        self.layer.borderColor = gray.cgColor
+        self.layer.borderWidth = 3
     }
     
 }

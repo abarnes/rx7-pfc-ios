@@ -42,13 +42,6 @@ class GaugeLayoutConfigManager {
             completionHandler?(true)
         }
         
-        // TODO revise this to work
-        /*
-        DispatchQueue.global().after(when: 10) {
-            completionHandler?(true)
-        }
-        */
-        
     }
     
     /// MARK - Private
@@ -99,14 +92,12 @@ class GaugeLayoutConfigManager {
         dataArray.append(UInt8(0))
         
         for gauge in gauges {
-            print(gauge.rawValue)
             dataArray.append(contentsOf: [UInt8(gauge.rawValue), 1, 30]) // TODO update isGraphEnabled and graphTime
         }
         
         dataArray.append(contentsOf: [UInt8.max, UInt8.max, UInt8.max])
         
         for monitor in monitors {
-            print(monitor.rawValue)
             dataArray.append(contentsOf: [UInt8(monitor.rawValue)])
         }
 
