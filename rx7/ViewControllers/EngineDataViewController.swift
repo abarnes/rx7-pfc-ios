@@ -86,7 +86,7 @@ class EngineDataViewController: UIViewController {
 extension EngineDataViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return EngineDataItem.count
+        return EngineDataItem.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

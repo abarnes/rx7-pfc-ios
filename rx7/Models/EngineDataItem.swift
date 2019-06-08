@@ -12,7 +12,7 @@ import Foundation
  * This model is used to drive the Gauges page.  It describes the types of data points available.
  */
 
-enum EngineDataItem: Int {
+enum EngineDataItem: Int, CaseIterable {
     case rpm = 0
     case boost
     case waterTemp
@@ -61,9 +61,6 @@ enum EngineDataItem: Int {
     case chargeControl
     case turboControl
     case pressureRegulatorControl
-    
-    // static var count: Int { return EngineDataItem.pressureRegulatorControl.hashValue + 1 } // TODO figure out why this broke in iOS 12
-    static var count: Int { return 46 }
     
     var title: String {
         switch self {
@@ -159,7 +156,6 @@ enum EngineDataItem: Int {
             return "Turbo Control"
         case .pressureRegulatorControl:
             return "Pressure Regulator Control"
-        // If anything gets added, update the count property below
         }
     }
     

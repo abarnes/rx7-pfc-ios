@@ -23,7 +23,7 @@ class AddGaugeConfigViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return EngineDataItem.count
+        return EngineDataItem.allCases.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,7 +39,7 @@ class AddGaugeConfigViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard (indexPath.row < EngineDataItem.count), let item = EngineDataItem(rawValue: indexPath.row) else { return }
+        guard (indexPath.row < EngineDataItem.allCases.count), let item = EngineDataItem(rawValue: indexPath.row) else { return }
         
         self.addItemCallback?(item)
     }

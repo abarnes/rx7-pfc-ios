@@ -1,3 +1,1 @@
-github "troystribling/BlueCap" ~> 0.6
 github "ReactiveKit/Bond"
-github "Alamofire/Alamofire" ~> 4.7

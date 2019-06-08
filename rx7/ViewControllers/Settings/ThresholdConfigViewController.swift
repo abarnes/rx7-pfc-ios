@@ -59,7 +59,7 @@ extension ThresholdConfigViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return EngineDataItem.count
+        return EngineDataItem.allCases.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,7 +67,7 @@ extension ThresholdConfigViewController {
             fatalError("Could not dequeue cell")
         }
         
-        guard indexPath.row < EngineDataItem.count else { return cell }
+        guard indexPath.row < EngineDataItem.allCases.count else { return cell }
         if let dataItem = EngineDataItem(rawValue: indexPath.row) {
             let viewModel = ThresholdConfigTableViewCellViewModel(dataItem: dataItem)
             cell.viewModel = viewModel
@@ -87,7 +87,7 @@ extension ThresholdConfigViewController {
 extension ThresholdConfigViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard indexPath.row < EngineDataItem.count else { return }
+        guard indexPath.row < EngineDataItem.allCases.count else { return }
         if let dataItem = EngineDataItem(rawValue: indexPath.row) {
             let storyboard = UIStoryboard(name: Constants.editThresholdStoryboardFileName, bundle: nil)
             guard let controller = storyboard.instantiateViewController(withIdentifier: Constants.editThresholdStoryboardId) as? EditThresholdViewController else { return }
