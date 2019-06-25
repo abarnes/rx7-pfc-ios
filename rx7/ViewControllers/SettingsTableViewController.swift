@@ -27,7 +27,7 @@ class SettingsTableViewController: UITableViewController {
         
     }
     
-    fileprivate let settingsLinkArray: [SettingsSections] = [.gauges, .thresholds, .requestIntervals, .shutdown]
+    fileprivate let settingsLinkArray: [SettingsSections] = [.gauges, .thresholds, /*.requestIntervals,*/ .shutdown]
     
     override func viewDidLoad() {
         super.viewDidLoad()
