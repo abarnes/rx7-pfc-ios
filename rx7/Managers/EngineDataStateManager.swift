@@ -35,13 +35,13 @@ class EngineDataStateManager {
             }
             
             if (!self.didBeginDrive.value && ((newData.rpm ?? 0) > 1)) {
-                self.didBeginDrive.next(true)
+                self.didBeginDrive.send(true)
             }
             
             if let currentData = self.current.value {
-                self.current.next(currentData.supercede(with: newData))
+                self.current.send(currentData.supercede(with: newData))
             } else {
-                self.current.next(newData)
+                self.current.send(newData)
             }
         }
     }

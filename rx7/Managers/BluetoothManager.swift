@@ -106,6 +106,8 @@ extension BluetoothManager: CBCentralManagerDelegate {
         case .poweredOn:
             print("BluetoothManager: central.state is .poweredOn")
             centralManager.scanForPeripherals(withServices: [BluetoothConfig.Services.service])
+        @unknown default:
+            print("BluetoothManager: unknown state")
         }
     }
     
@@ -113,7 +115,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
                         advertisementData: [String : Any], rssi RSSI: NSNumber) {
         print("BluetoothManager: peripheral found: \(peripheral)")
         
-        state.next(.connecting)
+        state.send(.connecting)
         
         connectedPeripheral = peripheral
         if let connectedPeripheral = connectedPeripheral {
@@ -143,7 +145,7 @@ extension BluetoothManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         guard let characteristics = service.characteristics else { return }
         
-        state.next(.connected)
+        state.send(.connected)
         
         for characteristic in characteristics {
             print("BluetoothManager: didDiscoverCharacteristicsFor \(characteristic)")

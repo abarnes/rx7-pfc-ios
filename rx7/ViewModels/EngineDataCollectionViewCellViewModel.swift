@@ -25,7 +25,7 @@ class EngineDataCollectionViewCellViewModel {
     private func setupObservers(forKey key: EngineDataItem) {
         EngineDataStateManager.singleton.current.observeNext { [weak self] (engineData) in
             guard let engineData = engineData, let item = engineData[key] else { return }
-            self?.value.next("\(item)")
+            self?.value.send("\(item)")
         }.dispose(in: disposeBag)
     }
     

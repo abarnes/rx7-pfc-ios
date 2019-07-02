@@ -26,9 +26,9 @@ class GaugeConfigViewControllerViewModel {
         gaugeConfigManager.readGauges { [weak self] (gauges, monitors) in
             guard let `self` = self else { return }
 
-            self.gauges.next(gauges)
-            self.monitors.next(monitors)
-            self.hasLoaded.next(true)
+            self.gauges.send(gauges)
+            self.monitors.send(monitors)
+            self.hasLoaded.send(true)
         }
     }
     
@@ -45,11 +45,11 @@ class GaugeConfigViewControllerViewModel {
         if (section == 0) {
             var updatedArray = gauges.value
             updatedArray.append(item)
-            gauges.next(updatedArray)
+            gauges.send(updatedArray)
         } else if (section == 1) {
             var updatedArray = monitors.value
             updatedArray.append(item)
-            monitors.next(updatedArray)
+            monitors.send(updatedArray)
         }
         
         gaugeConfigChanged()
@@ -61,13 +61,13 @@ class GaugeConfigViewControllerViewModel {
             
             var updatedGauges = gauges.value
             updatedGauges.remove(at: indexPath.row)
-            gauges.next(updatedGauges)
+            gauges.send(updatedGauges)
         } else if (indexPath.section == 0) {
             guard (indexPath.row < monitors.value.count) else { return }
             
             var updatedMonitors = monitors.value
             updatedMonitors.remove(at: indexPath.row)
-            monitors.next(updatedMonitors)
+            monitors.send(updatedMonitors)
         }
         
         gaugeConfigChanged()
@@ -78,12 +78,12 @@ class GaugeConfigViewControllerViewModel {
             var updatedGauges = gauges.value
             let movedItem = updatedGauges.remove(at: fromIndexPath.row)
             updatedGauges.insert(movedItem, at: toIndexPath.row)
-            gauges.next(updatedGauges)
+            gauges.send(updatedGauges)
         } else if (fromIndexPath.section == 1 && toIndexPath.section == 1) {
             var updatedMonitors = monitors.value
             let movedItem = updatedMonitors.remove(at: fromIndexPath.row)
             updatedMonitors.insert(movedItem, at: toIndexPath.row)
-            monitors.next(updatedMonitors)
+            monitors.send(updatedMonitors)
         } else {
             var fromArray = fromIndexPath.section == 0 ? gauges.value : monitors.value
             var toArray = toIndexPath.section == 0 ? gauges.value : monitors.value
@@ -92,11 +92,11 @@ class GaugeConfigViewControllerViewModel {
             toArray.insert(movedItem, at: toIndexPath.row)
 
             if (toIndexPath.section == 0) {
-                gauges.next(toArray)
-                monitors.next(fromArray)
+                gauges.send(toArray)
+                monitors.send(fromArray)
             } else if (toIndexPath.section == 1) {
-                monitors.next(toArray)
-                gauges.next(fromArray)
+                monitors.send(toArray)
+                gauges.send(fromArray)
             }
         }
         
@@ -110,25 +110,25 @@ class GaugeConfigViewControllerViewModel {
     func save() {
         guard configHasChanged.value else { return }
         
-        isSaving.next(true)
+        isSaving.send(true)
         
         gaugeConfigManager.setGauges(gauges: gauges.value, monitors: monitors.value) { [weak self] (wasSuccessful) in
             guard let `self` = self else { return }
             if (!wasSuccessful) {
-                self.saveError.next("Error saving gauge config.")
+                self.saveError.send("Error saving gauge config.")
             } else if (self.saveError.value != nil) {
-                self.saveError.next(nil)
+                self.saveError.send(nil)
             }
             
-            self.configHasChanged.next(false)
-            self.isSaving.next(false)
+            self.configHasChanged.send(false)
+            self.isSaving.send(false)
         }
     }
     
     /// Private Methods
     
     private func gaugeConfigChanged() {
-        configHasChanged.next(true)
+        configHasChanged.send(true)
     }
     
     

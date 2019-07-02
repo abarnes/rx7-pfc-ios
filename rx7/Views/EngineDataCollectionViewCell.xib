@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="219" height="159"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQV-2y-g3E" userLabel="Container View">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQV-2y-g3E" userLabel="Container View" customClass="LineChartView" customModule="Charts">
                         <rect key="frame" x="0.0" y="0.0" width="219" height="159"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="XWi-0F-MUV">
@@ -69,7 +69,8 @@
             <viewLayoutGuide key="safeArea" id="9M7-IB-BzK"/>
             <size key="customSize" width="219" height="159"/>
             <connections>
-                <outlet property="stackView" destination="XWi-0F-MUV" id="8Ew-u1-pDr"/>
+                <outlet property="chartView" destination="YQV-2y-g3E" id="vmc-Yc-26H"/>
+                <outlet property="stackView" destination="XWi-0F-MUV" id="gBd-2k-WZ8"/>
                 <outlet property="title" destination="l4T-LT-any" id="EbL-EC-7bA"/>
                 <outlet property="value" destination="302-SX-JFf" id="OhR-sq-AZ9"/>
             </connections>

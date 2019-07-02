@@ -8,12 +8,14 @@
 
 import UIKit
 import ReactiveKit
+import Charts
 
 class EngineDataCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var value: UILabel!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var chartView: LineChartView!
     
     private var disposeBag = DisposeBag()
     
@@ -27,6 +29,7 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupBorders()
+        setupChart()
     }
 
     
@@ -44,6 +47,18 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
         let gray: UIColor = .gray
         self.layer.borderColor = gray.cgColor
         self.layer.borderWidth = 3
+    }
+    
+    private func setupChart() {
+        let point1 = ChartDataEntry(x: 1, y: 15)
+        let point2 = ChartDataEntry(x: 4, y: 25)
+        
+        let dataset = LineChartDataSet(entries: [point1, point2], label: "")
+        
+        let data = LineChartData()
+        data.addDataSet(dataset)
+        
+        chartView.data = data
     }
     
 }

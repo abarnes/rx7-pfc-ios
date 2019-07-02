@@ -22,23 +22,23 @@ class EditThresholdViewModel {
         self.type = type
         self.editParameters = editParameters
         
-        currentValue.next(value.value)
-        currentIsGreaterThan.next(value.greaterThan)
-        currentEnabled.next(value.enabled)
+        currentValue.send(value.value)
+        currentIsGreaterThan.send(value.greaterThan)
+        currentEnabled.send(value.enabled)
     }
     
     func updateCurrentValue(_ value: Double) {
-        currentValue.next(value)
+        currentValue.send(value)
     }
     
     func toggleEnabled(_ enabled: Bool) {
         print("Toggling threshold enabled: \(enabled)")
-        currentEnabled.next(enabled)
+        currentEnabled.send(enabled)
     }
     
     func toggleDirection(isGreaterThan: Bool) {
         print("Direction changed isGreaterThan: \(isGreaterThan)")
-        currentIsGreaterThan.next(isGreaterThan)
+        currentIsGreaterThan.send(isGreaterThan)
     }
     
     

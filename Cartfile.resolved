@@ -1,3 +1,4 @@
-github "DeclarativeHub/ReactiveKit" "v3.12.2"
+github "DeclarativeHub/ReactiveKit" "v3.13.0"
 github "ReactiveKit/Bond" "7.5.0"
+github "danielgindi/Charts" "v3.3.0"
 github "tonyarnold/Differ" "1.4.3"
