@@ -50,7 +50,6 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XWi-0F-MUV" firstAttribute="width" secondItem="YQV-2y-g3E" secondAttribute="width" id="AU1-MV-gDx"/>
                             <constraint firstItem="XWi-0F-MUV" firstAttribute="leading" secondItem="YQV-2y-g3E" secondAttribute="leading" id="Jqr-m4-XU0"/>
@@ -59,7 +58,6 @@
                     </view>
                 </subviews>
             </view>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="YQV-2y-g3E" secondAttribute="bottom" id="4Xv-7w-1XE"/>
                 <constraint firstItem="YQV-2y-g3E" firstAttribute="leading" secondItem="Hbv-ZM-80u" secondAttribute="leading" id="5Fn-b4-bkj"/>

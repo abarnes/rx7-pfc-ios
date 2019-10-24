@@ -28,8 +28,9 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupBorders()
+        // setupBorders()
         setupChart()
+        styleChart()
     }
 
     
@@ -51,14 +52,36 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
     
     private func setupChart() {
         let point1 = ChartDataEntry(x: 1, y: 15)
-        let point2 = ChartDataEntry(x: 4, y: 25)
+        let point2 = ChartDataEntry(x: 3, y: 38)
+        let point3 = ChartDataEntry(x: 4, y: 25)
         
-        let dataset = LineChartDataSet(entries: [point1, point2], label: "")
+        let dataset = LineChartDataSet(entries: [point1, point2, point3], label: "")
+        dataset.drawCirclesEnabled = false
+        dataset.mode = .cubicBezier
+        dataset.setColor(.green)
+        dataset.drawFilledEnabled = true
+        dataset.fillColor = .green
         
         let data = LineChartData()
         data.addDataSet(dataset)
         
         chartView.data = data
+    }
+    
+    private func styleChart() {
+        chartView.backgroundColor = .white
+        chartView.gridBackgroundColor = .white // UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 150/255)
+        chartView.drawGridBackgroundEnabled = false
+        chartView.drawBordersEnabled = false
+        chartView.chartDescription?.enabled = false
+        chartView.legend.enabled = false
+        chartView.xAxis.enabled = false
+        chartView.rightAxis.enabled = false
+        // chartView.leftAxis.enabled = false
+        chartView.leftAxis.axisLineWidth = 0
+        chartView.leftAxis.gridColor = .lightGray
+        chartView.leftAxis.gridLineWidth = 0.5
+        
     }
     
 }
