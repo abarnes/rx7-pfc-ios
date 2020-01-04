@@ -18,30 +18,30 @@ class EngineDataCollectionViewCellViewModel {
     private(set) var value = Observable<String>("")
     private(set) var dataset: LineChartDataSet
     private(set) var shouldUpdateChart = Observable<Bool>(false)
+    private(set) var shouldDisplayChart: Bool
     
-    let MAX_CHART_DATAPOINTS = 20
+    let MAX_CHART_DATAPOINTS = 30
     
     private var iterator = 1.0
     
     init(gauge: EngineDataItem) {
         title = gauge.title
+        dataset = LineChartDataSet(entries: [], label: "")
+        shouldDisplayChart = gauge.shouldDisplayChart
         
-        let point1 = ChartDataEntry(x: 0, y: 5)
-        let point2 = ChartDataEntry(x: 1, y: 20)
+//        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+//            guard let `self` = self else { return }
+//            self.value.send("17")
+//
+//            self.dataset.append(ChartDataEntry(x: self.iterator, y: 17))
+//            self.iterator += 1
+//            if (self.dataset.count > self.MAX_CHART_DATAPOINTS) {
+//                let _ = self.dataset.remove(at: 0)
+//            }
+//            self.shouldUpdateChart.send(!self.shouldUpdateChart.value)
+//        }
         
-        dataset = LineChartDataSet(entries: [point1, point2], label: "")
-        
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
-            guard let `self` = self else { return }
-            self.value.send("17")
-            
-            self.dataset.append(ChartDataEntry(x: self.iterator, y: 17))
-            self.iterator += 1
-            if (self.dataset.count > self.MAX_CHART_DATAPOINTS) {
-                let _ = self.dataset.remove(at: 0)
-            }
-            self.shouldUpdateChart.send(!self.shouldUpdateChart.value)
-        }
+        setupObservers(forKey: gauge)
     }
     
     private func setupObservers(forKey key: EngineDataItem) {
@@ -49,12 +49,15 @@ class EngineDataCollectionViewCellViewModel {
             guard let `self` = self, let engineData = engineData, let item = engineData[key] else { return }
             self.value.send("\(item)")
             
-            if let numberValue = item as? Double {
-                if (self.dataset.count == self.MAX_CHART_DATAPOINTS) {
-                    let _ = self.dataset.remove(at: 0)
+            if (self.shouldDisplayChart) {
+                if let numberValue = Double("\(item)") {
+                    self.dataset.append(ChartDataEntry(x: self.iterator, y: numberValue))
+                    self.iterator += 1
+                    if (self.dataset.count > self.MAX_CHART_DATAPOINTS) {
+                        let _ = self.dataset.remove(at: 0)
+                    }
+                    self.shouldUpdateChart.send(!self.shouldUpdateChart.value)
                 }
-                self.dataset.append(ChartDataEntry(x: Double(self.dataset.count), y: numberValue))
-                self.shouldUpdateChart.send(true)
             }
             
         }.dispose(in: disposeBag)

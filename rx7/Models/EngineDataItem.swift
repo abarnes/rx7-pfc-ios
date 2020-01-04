@@ -256,5 +256,102 @@ enum EngineDataItem: Int, CaseIterable {
         }
     }
     
+    var shouldDisplayChart: Bool {
+        switch self {
+        case .rpm:
+            return true
+        case .boost:
+            return true
+        case .waterTemp:
+            return true
+        case .knock:
+            return true
+        case .injectorDuty:
+            return true
+        case .leadingIgnition:
+            return true
+        case .trailingIgnition:
+            return true
+        case .speed:
+            return true
+        case .airTemp:
+            return true
+        case .batteryVoltage:
+            return true
+        case .intakePressure:
+            return true
+        case .mapSensorVoltage:
+            return true
+        case .tpsVoltage:
+            return true
+        case .primaryInjectorPulse:
+            return true
+        case .fuelCorrection:
+            return true
+        case .fuelTemp:
+            return true
+        case .mopPosition:
+            return true
+        case .boostTP:
+            return true
+        case .boostWG:
+            return true
+        case .intakeTemp:
+            return true
+        case .iscvDuty:
+            return true
+        case .o2Voltage:
+            return true
+        case .secondaryInjectorPulse:
+            return true
+        case .tpsFullRangeVoltage:
+            return true
+        case .tpsNarrowRangeVoltage:
+            return true
+        case .mopPositionSensorVoltage:
+            return true
+        case .waterTempSensorVoltage:
+            return true
+        case .intakeAirTempSensorVoltage:
+            return true
+        case .fuelTempSensorVoltage:
+            return true
+        case .o2SensorVoltage:
+            return true
+        case .starterSwitch:
+            return false
+        case .airConditioningSwitch:
+            return false
+        case .powerSteeringPressureSwitch:
+            return false
+        case .neutralSwitch:
+            return false
+        case .clutchSwitch:
+            return false
+        case .stopSwitch:
+            return false
+        case .catalyzerThermoSensorSwitch:
+            return false
+        case .electricalLoadSwitch:
+            return false
+        case .exhaustTempWarningIndicator:
+            return false
+        case .fuelPumpOperation:
+            return false
+        case .fuelPumpControl:
+            return false
+        case .airPumpRelay:
+            return false
+        case .portAirControl:
+            return false
+        case .chargeControl:
+            return false
+        case .turboControl:
+            return false
+        case .pressureRegulatorControl:
+            return false
+        }
+    }
+    
     
 }

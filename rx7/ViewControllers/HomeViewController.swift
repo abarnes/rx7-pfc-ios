@@ -38,6 +38,7 @@ class HomeViewController: UIViewController {
         EngineDataStateManager.singleton.didBeginDrive.observeNext { [weak self] (didBegin) in
             guard didBegin else { return }
             // self?.driveCodeLabel.text = RemoteDatabaseManager.singleton.drive?.code TODO re-enable
+            self?.driveCodeLabel.text = "Receiving Data"
         }.dispose(in: disposeBag)
     }
 

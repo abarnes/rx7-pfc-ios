@@ -21,16 +21,20 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
     
     var viewModel: EngineDataCollectionViewCellViewModel? {
         didSet {
-            title.text = viewModel?.title
-            setupChart()
-            styleChart()
+            guard let viewModel = viewModel else { return }
+            title.text = viewModel.title
+            if (viewModel.shouldDisplayChart) {
+                setupChart()
+                styleChart()
+            }
             setupObservers()
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        styleChart()
+        
+        chartView.noDataText = ""
     }
 
     
@@ -43,13 +47,15 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
             self.value.text = "\(value)"
         }.dispose(in: disposeBag)
         
-        viewModel.shouldUpdateChart.observe { [weak self] _ in
-            guard let `self` = self else { return }
-            
-            // Both lines below are necessary for real time updating
-            self.chartView.data?.notifyDataChanged()
-            self.chartView.notifyDataSetChanged()
-        }.dispose(in: disposeBag)
+        if (viewModel.shouldDisplayChart) {
+            viewModel.shouldUpdateChart.observe { [weak self] _ in
+                guard let `self` = self else { return }
+                
+                // Both lines below are necessary for real time updating
+                self.chartView.data?.notifyDataChanged()
+                self.chartView.notifyDataSetChanged()
+            }.dispose(in: disposeBag)
+        }
     }
     
     private func setupChart() {
