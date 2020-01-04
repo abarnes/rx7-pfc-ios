@@ -9,9 +9,15 @@
 import Foundation
 import Bond
 
-class EngineDataStateManager {
-    
-    private(set) static var singleton = EngineDataStateManager()
+protocol EngineDataStateManagerProtocol {
+    static var singleton: EngineDataStateManagerProtocol { get }
+    var current: Observable<EngineDataPoint?> { get }
+    var didBeginDrive: Observable<Bool> { get }
+    func getCurrentDataPointByKey(_ key: EngineDataItem) -> Any?
+}
+
+class EngineDataStateManager: EngineDataStateManagerProtocol {
+    private(set) static var singleton: EngineDataStateManagerProtocol = EngineDataStateManager()
     fileprivate(set) var current = Observable<EngineDataPoint?>(nil)
     fileprivate(set) var didBeginDrive = Observable<Bool>(false)
     

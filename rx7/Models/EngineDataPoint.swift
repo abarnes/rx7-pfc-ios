@@ -11,60 +11,60 @@ import CoreLocation
 
 struct EngineDataPoint {
     
-    private(set) var time: Int?
-    private(set) var boost: Int?
-    private(set) var waterTemp: Int?
-    private(set) var knock: Int?
-    private(set) var injectorDuty: Int?
-    private(set) var leadingIgnition: Int?
-    private(set) var trailingIgnition: Int?
-    private(set) var speed: Int?
-    private(set) var airTemp: Int?
-    private(set) var batteryVoltage: Double?
-    private(set) var rpm: Int?
+    var time: Int?
+    var boost: Int?
+    var waterTemp: Int?
+    var knock: Int?
+    var injectorDuty: Int?
+    var leadingIgnition: Int?
+    var trailingIgnition: Int?
+    var speed: Int?
+    var airTemp: Int?
+    var batteryVoltage: Double?
+    var rpm: Int?
     
-    private(set) var location: CLLocationCoordinate2D?
+    var location: CLLocationCoordinate2D?
     
-    private(set) var intakePressure: Int?
-    private(set) var mapSensorVoltage: Double?
-    private(set) var tpsVoltage: Double?
-    private(set) var primaryInjectorPulse: Int?
-    private(set) var fuelCorrection: Int?
-    private(set) var fuelTemp: Int?
-    private(set) var mopPosition: Int?
-    private(set) var boostTP: Int?
-    private(set) var boostWG: Int?
-    private(set) var intakeTemp: Int?
-    private(set) var iscvDuty: Int?
-    private(set) var o2Voltage: Double?
-    private(set) var secondaryInjectorPulse: Int?
+    var intakePressure: Int?
+    var mapSensorVoltage: Double?
+    var tpsVoltage: Double?
+    var primaryInjectorPulse: Int?
+    var fuelCorrection: Int?
+    var fuelTemp: Int?
+    var mopPosition: Int?
+    var boostTP: Int?
+    var boostWG: Int?
+    var intakeTemp: Int?
+    var iscvDuty: Int?
+    var o2Voltage: Double?
+    var secondaryInjectorPulse: Int?
     
-    private(set) var tpsFullRangeVoltage: Double?
-    private(set) var tpsNarrowRangeVoltage: Double?
-    private(set) var mopPositionSensorVoltage: Double?
-    private(set) var waterTempSensorVoltage: Double?
-    private(set) var intakeAirTempSensorVoltage: Double?
-    private(set) var fuelTempSensorVoltage: Double?
-    private(set) var o2SensorVoltage: Double? // ------ is this distinct from o2Voltage?
-    private(set) var starterSwitch: Bool?
-    private(set) var airConditioningSwitch: Bool?
-    private(set) var powerSteeringPressureSwitch: Bool?
-    private(set) var neutralSwitch: Bool?
-    private(set) var clutchSwitch: Bool?
-    private(set) var stopSwitch: Bool?
-    private(set) var catalyzerThermoSensorSwitch: Bool?
-    private(set) var electricalLoadSwitch: Bool?
-    private(set) var exhaustTempWarningIndicator: Bool?
-    private(set) var fuelPumpOperation: Bool?
-    private(set) var fuelPumpControl: Bool?
-    private(set) var airPumpRelay: Bool?
-    private(set) var portAirControl: Bool?
-    private(set) var chargeControl: Bool?
-    private(set) var turboControl: Bool?
-    private(set) var pressureRegulatorControl: Bool?
+    var tpsFullRangeVoltage: Double?
+    var tpsNarrowRangeVoltage: Double?
+    var mopPositionSensorVoltage: Double?
+    var waterTempSensorVoltage: Double?
+    var intakeAirTempSensorVoltage: Double?
+    var fuelTempSensorVoltage: Double?
+    var o2SensorVoltage: Double? // ------ is this distinct from o2Voltage?
+    var starterSwitch: Bool?
+    var airConditioningSwitch: Bool?
+    var powerSteeringPressureSwitch: Bool?
+    var neutralSwitch: Bool?
+    var clutchSwitch: Bool?
+    var stopSwitch: Bool?
+    var catalyzerThermoSensorSwitch: Bool?
+    var electricalLoadSwitch: Bool?
+    var exhaustTempWarningIndicator: Bool?
+    var fuelPumpOperation: Bool?
+    var fuelPumpControl: Bool?
+    var airPumpRelay: Bool?
+    var portAirControl: Bool?
+    var chargeControl: Bool?
+    var turboControl: Bool?
+    var pressureRegulatorControl: Bool?
     
-    fileprivate init() {
-            // no-op
+    init() {
+            // no-op. used to create mock data points
     }
     
     init(fromData data: Data) {

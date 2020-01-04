@@ -21,6 +21,7 @@
 		D93A2F7F208BC5980059A94E /* EditThresholdViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A2F7E208BC5980059A94E /* EditThresholdViewControllerViewModel.swift */; };
 		D93C0682205B267D00C9E6B5 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93C0681205B267D00C9E6B5 /* Settings.storyboard */; };
 		D93C0684205B27EA00C9E6B5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93C0683205B27EA00C9E6B5 /* SettingsTableViewController.swift */; };
+		D9547BEB239B36A200AE47DC /* MockEngineDataStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9547BEA239B36A200AE47DC /* MockEngineDataStateManager.swift */; };
 		D965E1C921419BAE0093FA0A /* EngineDataCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D965E1C821419BAE0093FA0A /* EngineDataCollectionViewCell.xib */; };
 		D96608E620F44E5600A4C54E /* gRPCCertificates.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D96608E520F44E5600A4C54E /* gRPCCertificates.bundle */; };
 		D966090220F4504400A4C54E /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CBCF26204E3CF6002D4206 /* CoreBluetooth.framework */; };
@@ -129,6 +130,7 @@
 		D93A2F7E208BC5980059A94E /* EditThresholdViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditThresholdViewControllerViewModel.swift; path = rx7/ViewModels/EditThresholdViewControllerViewModel.swift; sourceTree = SOURCE_ROOT; };
 		D93C0681205B267D00C9E6B5 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		D93C0683205B27EA00C9E6B5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = rx7/ViewControllers/SettingsTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		D9547BEA239B36A200AE47DC /* MockEngineDataStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEngineDataStateManager.swift; sourceTree = "<group>"; };
 		D965E1C821419BAE0093FA0A /* EngineDataCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EngineDataCollectionViewCell.xib; path = rx7/Views/EngineDataCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		D96608BE20F44DB100A4C54E /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		D96608BF20F44DB100A4C54E /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 				D9CBCF2B205224EE002D4206 /* BluetoothConfig.swift */,
 				D98B1AAB207E9C9E005A7DB3 /* BluetoothManager.swift */,
 				D9CBCF4A2055DFC5002D4206 /* EngineDataStateManager.swift */,
+				D9547BEA239B36A200AE47DC /* MockEngineDataStateManager.swift */,
 				D9F8C3ED217139EB00D02309 /* GaugeLayoutConfigManager.swift */,
 				D9CBCF1C204CE191002D4206 /* GpsManager.swift */,
 				D9B51CE520F5840800CEA24D /* RemoteDatabaseManager.swift */,
@@ -623,6 +626,7 @@
 				D9F8C3EC2171388B00D02309 /* GaugeConfigViewController.swift in Sources */,
 				D9CBCF06204CDEA5002D4206 /* AppDelegate.swift in Sources */,
 				D99568342139E5B9007F8CDF /* ThresholdItem.swift in Sources */,
+				D9547BEB239B36A200AE47DC /* MockEngineDataStateManager.swift in Sources */,
 				D99568322139E124007F8CDF /* ThresholdConfigManager.swift in Sources */,
 				D9CBCF08204CDEA5002D4206 /* HomeViewController.swift in Sources */,
 				D9BCA02D207C430C003559E9 /* LiveDataUploadService.swift in Sources */,

@@ -22,14 +22,14 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
     var viewModel: EngineDataCollectionViewCellViewModel? {
         didSet {
             title.text = viewModel?.title
+            setupChart()
+            styleChart()
             setupObservers()
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // setupBorders()
-        setupChart()
         styleChart()
     }
 
@@ -42,33 +42,34 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
             guard let `self` = self else { return }
             self.value.text = "\(value)"
         }.dispose(in: disposeBag)
-    }
-    
-    private func setupBorders() {
-        let gray: UIColor = .gray
-        self.layer.borderColor = gray.cgColor
-        self.layer.borderWidth = 3
+        
+        viewModel.shouldUpdateChart.observe { [weak self] _ in
+            guard let `self` = self else { return }
+            
+            // Both lines below are necessary for real time updating
+            self.chartView.data?.notifyDataChanged()
+            self.chartView.notifyDataSetChanged()
+        }.dispose(in: disposeBag)
     }
     
     private func setupChart() {
-        let point1 = ChartDataEntry(x: 1, y: 15)
-        let point2 = ChartDataEntry(x: 3, y: 38)
-        let point3 = ChartDataEntry(x: 4, y: 25)
-        
-        let dataset = LineChartDataSet(entries: [point1, point2, point3], label: "")
-        dataset.drawCirclesEnabled = false
-        dataset.mode = .cubicBezier
-        dataset.setColor(.green)
-        dataset.drawFilledEnabled = true
-        dataset.fillColor = .green
+        guard let dataset = viewModel?.dataset else { return }
         
         let data = LineChartData()
         data.addDataSet(dataset)
-        
         chartView.data = data
     }
     
     private func styleChart() {
+        if let dataset = viewModel?.dataset {
+            dataset.drawCirclesEnabled = false
+            dataset.mode = .horizontalBezier
+            dataset.setColor(.green)
+            dataset.drawFilledEnabled = true
+            dataset.fillColor = .green
+            dataset.drawValuesEnabled = false
+        }
+        
         chartView.backgroundColor = .white
         chartView.gridBackgroundColor = .white // UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 150/255)
         chartView.drawGridBackgroundEnabled = false
@@ -81,7 +82,6 @@ class EngineDataCollectionViewCell: UICollectionViewCell {
         chartView.leftAxis.axisLineWidth = 0
         chartView.leftAxis.gridColor = .lightGray
         chartView.leftAxis.gridLineWidth = 0.5
-        
     }
     
 }
